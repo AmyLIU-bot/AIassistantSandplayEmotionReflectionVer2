@@ -273,7 +273,7 @@ export function TerrainMesh({
       <meshStandardMaterial
         map={sandTexture}
         bumpMap={bumpMap}
-        bumpScale={0.25}
+        bumpScale={0.35}
         vertexColors
         roughness={0.95}
         metalness={0}
