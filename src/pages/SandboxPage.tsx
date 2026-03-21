@@ -98,6 +98,7 @@ export default function SandboxPage() {
       objectTypes: objects.map((o) => o.type),
       timestamp: new Date().toISOString(),
     });
+    saveSession(objects);
     setModalOpen(false);
     toast.success("Reflection saved to your activity!");
   }, [finishReflection, objects]);
