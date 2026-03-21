@@ -20,6 +20,10 @@ export function getSavedSessions(): SandboxSession[] {
   }
 }
 
+export function getSessionById(id: string): SandboxSession | null {
+  return getSavedSessions().find((s) => s.id === id) ?? null;
+}
+
 export function saveSession(objects: PlacedObject[]): SandboxSession {
   const session: SandboxSession = {
     id: Date.now().toString(),
