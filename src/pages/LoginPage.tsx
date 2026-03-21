@@ -34,11 +34,20 @@ const LoginPage = () => {
       <div className="fixed bottom-[15%] right-[10%] w-96 h-96 rounded-full blur-[120px] animate-float-medium" style={{ background: "hsl(170 30% 50% / 0.08)" }} />
 
       <div className="relative z-10 w-full max-w-sm animate-fade-in-up">
-        <div className="flex items-center justify-center gap-2.5 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center backdrop-blur-sm">
-            <Leaf className="w-5 h-5 text-primary" />
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="absolute -top-12 left-0 flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors backdrop-blur-sm bg-card/30 rounded-lg px-3 py-1.5"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back
+        </button>
+
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center backdrop-blur-sm shadow-md">
+            <Leaf className="w-6 h-6 text-primary" />
           </div>
-          <span className="text-xl font-semibold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 15%)' }}>
+          <span className="text-2xl font-bold text-foreground drop-shadow-sm">
             Sandbox
           </span>
         </div>
