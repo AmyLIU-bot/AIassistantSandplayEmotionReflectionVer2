@@ -18,14 +18,14 @@ export function SandboxSidebar() {
   const navigate = useNavigate();
 
   return (
-    <aside className="flex flex-col w-16 lg:w-52 min-h-screen bg-sidebar border-r border-sidebar-border shrink-0">
+    <aside className="flex flex-col w-16 lg:w-52 min-h-screen bg-background border-r border-border shrink-0">
       {/* Logo */}
-      <div className="flex items-center gap-2 px-4 h-14 border-b border-sidebar-border">
+      <div className="flex items-center gap-2 px-4 h-14 border-b border-border">
         <div className="w-7 h-7 rounded-lg bg-primary/20 flex items-center justify-center">
-          <span className="text-primary text-sm font-medium">R</span>
+          <span className="text-primary text-sm font-medium">S</span>
         </div>
-        <span className="hidden lg:block text-sm font-medium text-foreground tracking-tight">
-          Reflective Sandbox
+        <span className="hidden lg:block text-sm font-medium text-foreground tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
+          Sandbox AI
         </span>
       </div>
 
