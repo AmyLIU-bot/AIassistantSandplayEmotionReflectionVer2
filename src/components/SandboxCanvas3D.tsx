@@ -1640,7 +1640,7 @@ export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDro
           <button onClick={() => { if (controlsRef.current) { controlsRef.current.target.x -= 0.5; controlsRef.current.update(); } }} className={btnClass} title="Pan left"><ArrowLeft size={12} /></button>
           <button onClick={() => { if (controlsRef.current) { controlsRef.current.target.x += 0.5; controlsRef.current.update(); } }} className={btnClass} title="Pan right"><ArrowRight size={12} /></button>
           <div className="w-px h-4 bg-border/40 mx-px" />
-          <button onClick={() => { if (controlsRef.current) { controlsRef.current.target.set(0, -0.5, 0); controlsRef.current.object.position.set(4, 3.5, 6); controlsRef.current.update(); } }} className={btnClass} title="Reset"><Home size={12} /></button>
+          <button onClick={() => { if (controlsRef.current) { controlsRef.current.target.set(0, -0.5, 0); controlsRef.current.object.position.set(4, 7, 6); controlsRef.current.update(); } }} className={btnClass} title="Reset"><Home size={12} /></button>
         </div>
       </div>
 
