@@ -18,10 +18,12 @@ import {
 
 const AccountActions = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [deleting, setDeleting] = useState(false);
 
   const handleSignOut = () => {
     toast({ title: "Signed out", description: "You have been signed out." });
+    navigate("/");
   };
 
   const handleDeleteAccount = async () => {
