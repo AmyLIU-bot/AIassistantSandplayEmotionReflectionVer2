@@ -90,7 +90,7 @@ const Index = () => {
 
         {/* Content grid — both columns share the remaining height */}
         <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5">
-          <div className="w-full max-w-7xl mx-auto h-full grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-4 lg:gap-5 items-start">
+          <div className="w-full max-w-7xl mx-auto h-full grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-4 lg:gap-5 items-start">
 
             {/* Left side — glass panel */}
             <div className="relative flex flex-col h-full min-h-0 rounded-3xl px-5 md:px-7 py-5 md:py-6 overflow-hidden">
