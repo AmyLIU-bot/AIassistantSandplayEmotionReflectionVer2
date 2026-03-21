@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Send, CheckCircle2, Loader2, MapPin, Clock, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import DashboardLayout from "@/components/DashboardLayout";
 
@@ -138,6 +138,43 @@ const ContactPage = () => {
                   </Button>
                 </form>
               )}
+            </CardContent>
+          </Card>
+
+          {/* Visit Us card */}
+          <Card className="border-0 shadow-card bg-card/95 backdrop-blur-sm">
+            <CardHeader className="pb-2">
+              <CardTitle className="text-lg text-foreground">Visit Us</CardTitle>
+              <CardDescription>Come say hello in person.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Address</p>
+                  <p className="text-sm text-muted-foreground">123 Wellness Avenue, Mindful District<br />Bangkok, 10110, Thailand</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Clock className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Office Hours</p>
+                  <p className="text-sm text-muted-foreground">Mon – Fri: 9:00 AM – 6:00 PM<br />Sat: 10:00 AM – 2:00 PM</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Phone className="w-4 h-4 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-foreground">Phone</p>
+                  <p className="text-sm text-muted-foreground">+66 2 123 4567</p>
+                </div>
+              </div>
             </CardContent>
           </Card>
 
