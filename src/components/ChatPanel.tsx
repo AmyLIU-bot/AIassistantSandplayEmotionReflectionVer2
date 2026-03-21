@@ -45,6 +45,7 @@ export function ChatPanel({ onReflect, reflectionText }: ChatPanelProps) {
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
+    // Simulated AI response
     setTimeout(() => {
       setMessages((prev) => [
         ...prev,
@@ -59,55 +60,61 @@ export function ChatPanel({ onReflect, reflectionText }: ChatPanelProps) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-chat-bg border-l border-border/60">
+    <aside className="flex flex-col w-80 xl:w-96 bg-chat-bg border-l border-border shrink-0 min-h-0">
       {/* Header */}
-      <div className="p-3 border-b border-border/40">
-        <h3 className="text-sm font-semibold text-foreground">Reflection Chat</h3>
-      </div>
-
-      {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 space-y-3">
-        {messages.map((m) => (
-          <div
-            key={m.id}
-            className={`p-3 rounded-xl text-sm leading-relaxed ${
-              m.role === "ai"
-                ? "bg-chat-ai text-foreground"
-                : "bg-chat-user text-foreground ml-4"
-            }`}
-          >
-            {m.content}
-          </div>
-        ))}
-      </div>
-
-      {/* Reflect button */}
-      <div className="px-3 py-2">
+      <div className="px-4 py-3 border-b border-border flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-medium text-foreground">Reflection Space</h2>
+          <p className="text-xs text-muted-foreground">A safe place to explore</p>
+        </div>
         <button
           onClick={onReflect}
-          className="w-full py-2 rounded-xl bg-reflect text-reflect-foreground text-sm font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-reflect text-reflect-foreground text-xs font-medium hover:opacity-90 transition-opacity active:scale-95"
         >
-          <Sparkles className="w-4 h-4" />
+          <Sparkles className="w-3.5 h-3.5" />
           Reflect
         </button>
       </div>
 
-      {/* Input */}
-      <div className="p-3 border-t border-border/40 flex gap-2">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          placeholder="Share your thoughts..."
-          className="flex-1 px-3 py-2 text-sm rounded-xl bg-background border border-border/60 outline-none focus:ring-1 focus:ring-primary/30 text-foreground"
-        />
-        <button
-          onClick={handleSend}
-          className="p-2 rounded-xl bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
-        >
-          <Send className="w-4 h-4" />
-        </button>
+      {/* Messages */}
+      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4 space-y-3 min-h-0">
+        {messages.map((msg) => (
+          <div
+            key={msg.id}
+            className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div
+              className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                msg.role === "ai"
+                  ? "bg-chat-ai text-foreground rounded-bl-md"
+                  : "bg-chat-user text-foreground rounded-br-md"
+              }`}
+            >
+              {msg.content}
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
+
+      {/* Input */}
+      <div className="px-3 pb-3 pt-1">
+        <div className="flex items-center gap-2 bg-secondary/60 rounded-xl px-3 py-2 border border-border/50 focus-within:ring-1 focus-within:ring-ring/30 transition-shadow">
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            placeholder="Share a thought…"
+            className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground/60"
+          />
+          <button
+            onClick={handleSend}
+            disabled={!input.trim()}
+            className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary/20 disabled:opacity-30 transition-all active:scale-95"
+          >
+            <Send className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    </aside>
   );
 }

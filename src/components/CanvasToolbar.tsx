@@ -21,23 +21,50 @@ export function CanvasToolbar({
   hasObjects,
 }: CanvasToolbarProps) {
   return (
-    <div className="flex items-center gap-1.5 px-3 py-2 bg-card/80 backdrop-blur-sm border-b border-border/40">
-      <Button variant="ghost" size="sm" onClick={onUndo} disabled={!canUndo} className="h-8 px-2">
-        <Undo2 className="w-4 h-4" />
-        <span className="text-xs ml-1">Undo</span>
+    <div className="flex items-center gap-2">
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onUndo}
+        disabled={!canUndo}
+        className="gap-1.5 text-muted-foreground"
+      >
+        <Undo2 size={14} />
+        <span className="hidden sm:inline text-xs">Undo</span>
       </Button>
-      <Button variant="ghost" size="sm" onClick={onRedo} disabled={!canRedo} className="h-8 px-2">
-        <Redo2 className="w-4 h-4" />
-        <span className="text-xs ml-1">Redo</span>
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onRedo}
+        disabled={!canRedo}
+        className="gap-1.5 text-muted-foreground"
+      >
+        <Redo2 size={14} />
+        <span className="hidden sm:inline text-xs">Redo</span>
       </Button>
+
+      <div className="w-px h-5 bg-border/50 mx-1" />
+
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onClear}
+        disabled={!hasObjects}
+        className="gap-1.5 text-muted-foreground hover:text-destructive hover:border-destructive/30"
+      >
+        <Trash2 size={14} />
+        <span className="hidden sm:inline text-xs">Clear All</span>
+      </Button>
+
       <div className="flex-1" />
-      <Button variant="ghost" size="sm" onClick={onClear} disabled={!hasObjects} className="h-8 px-2 text-destructive hover:text-destructive">
-        <Trash2 className="w-4 h-4" />
-        <span className="text-xs ml-1">Clear All</span>
-      </Button>
-      <Button size="sm" onClick={onFinish} disabled={!hasObjects} className="h-8 px-3 bg-primary text-primary-foreground">
-        <CheckCircle2 className="w-4 h-4" />
-        <span className="text-xs ml-1">Finish</span>
+
+      <Button
+        size="sm"
+        onClick={onFinish}
+        className="gap-1.5"
+      >
+        <CheckCircle2 size={14} />
+        <span className="text-xs">Finish</span>
       </Button>
     </div>
   );
