@@ -11,10 +11,6 @@ const Index = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    navigate("/home");
-  };
 
   return (
     <div className="min-h-screen relative overflow-hidden">
