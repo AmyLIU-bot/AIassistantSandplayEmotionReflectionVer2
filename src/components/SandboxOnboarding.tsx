@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowDown, Sparkles, GripHorizontal, Move, Layers, MousePointerClick, MessageCircle, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Sparkles, GripHorizontal, Move, Layers, MousePointerClick, MessageCircle, CheckCircle2, Video, PanelLeft, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ONBOARDING_KEY = "sandbox_onboarding_completed";
@@ -9,9 +9,10 @@ interface OnboardingStep {
   title: string;
   description: string;
   icon: React.ReactNode;
-  target: string; // data-onboarding attribute value
+  target: string;
   arrowDirection?: "down" | "up" | "left" | "right";
   waitForAction?: boolean;
+  expandCutout?: { top?: number; bottom?: number; left?: number; right?: number };
 }
 
 const steps: OnboardingStep[] = [
@@ -23,43 +24,54 @@ const steps: OnboardingStep[] = [
   },
   {
     title: "Object Bar",
-    description: "Here you can choose objects like people, trees, and houses.",
+    description: "Hover over a category icon to see available objects, then drag them into the sandbox.",
     icon: <MousePointerClick className="w-5 h-5" />,
     target: "objectbar",
     arrowDirection: "down",
+    expandCutout: { top: 120 },
   },
   {
     title: "Terrain & Environment",
-    description: "You can change the sandbox terrain and environment here. Try different shapes and layouts.",
+    description: "Change the sandbox terrain and environment here. Try different shapes and layouts.",
     icon: <Layers className="w-5 h-5" />,
     target: "terrain-selector",
     arrowDirection: "down",
   },
   {
+    title: "Camera / Object Mode",
+    description: "Switch between Camera mode (rotate & zoom the view) and Object mode (move & place objects).",
+    icon: <Video className="w-5 h-5" />,
+    target: "mode-toggle",
+    arrowDirection: "left",
+  },
+  {
+    title: "Camera Controls",
+    description: "Use these buttons to zoom, rotate, tilt, and pan the camera view.",
+    icon: <Camera className="w-5 h-5" />,
+    target: "camera-controls",
+    arrowDirection: "left",
+  },
+  {
     title: "Process Controls",
-    description: "Use these buttons to undo, redo, clear all objects, or finish your session.",
+    description: "Undo, redo, clear all objects, or finish your session with these buttons.",
     icon: <GripHorizontal className="w-5 h-5" />,
     target: "toolbar",
   },
   {
-    title: "Drag an Object",
-    description: "Try dragging an object into the sandbox.",
-    icon: <GripHorizontal className="w-5 h-5" />,
+    title: "Sidebar Navigation",
+    description: "Use the sidebar to navigate between Home, Account, Sandbox, and other pages.",
+    icon: <PanelLeft className="w-5 h-5" />,
+    target: "sandbox-sidebar",
+    arrowDirection: "right",
+  },
+  {
+    title: "Try It Out",
+    description: "Now try dragging an object from the Object Bar into the sandbox!",
+    icon: <Move className="w-5 h-5" />,
     target: "objectbar-first",
     arrowDirection: "up",
     waitForAction: true,
-  },
-  {
-    title: "Edit Objects",
-    description: "You can move or adjust objects after placing them.",
-    icon: <Move className="w-5 h-5" />,
-    target: "canvas",
-  },
-  {
-    title: "Change Terrain",
-    description: "Try changing the sandbox shape to explore different layouts.",
-    icon: <Layers className="w-5 h-5" />,
-    target: "terrain-selector",
+    expandCutout: { top: 120 },
   },
   {
     title: "Reflect",
@@ -69,7 +81,7 @@ const steps: OnboardingStep[] = [
   },
   {
     title: "You're Ready!",
-    description: "You're ready to explore your own space.",
+    description: "You're all set to explore your own space. Have fun!",
     icon: <CheckCircle2 className="w-5 h-5" />,
     target: "canvas",
   },
