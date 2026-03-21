@@ -27,11 +27,6 @@ export default function SandboxPage() {
   const historyIndexRef = useRef(0);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isOnboardingCompleted()) {
-      setShowOnboarding(true);
-    }
-  }, []);
 
   const pushHistory = (next: PlacedObject[]) => {
     const newHistory = historyRef.current.slice(0, historyIndexRef.current + 1);
