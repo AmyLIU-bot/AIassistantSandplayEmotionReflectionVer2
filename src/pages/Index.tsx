@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import bgNature from "@/assets/bg-nature.jpg";
 
 const Index = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const contentRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
