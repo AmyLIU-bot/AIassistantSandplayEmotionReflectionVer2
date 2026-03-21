@@ -230,12 +230,13 @@ export function SandboxOnboarding({ onComplete }: { onComplete: () => void }) {
 
   // Build 4 overlay rects around the target cutout (leaves target area truly uncovered)
   const dimStyle = "fixed bg-foreground/15 transition-all duration-500 pointer-events-auto";
+  const expand = step.expandCutout ?? {};
   const cutout = targetRect
     ? {
-        left: targetRect.left - pad,
-        top: targetRect.top - pad,
-        right: targetRect.right + pad,
-        bottom: targetRect.bottom + pad,
+        left: targetRect.left - pad - (expand.left ?? 0),
+        top: targetRect.top - pad - (expand.top ?? 0),
+        right: targetRect.right + pad + (expand.right ?? 0),
+        bottom: targetRect.bottom + pad + (expand.bottom ?? 0),
       }
     : null;
 
