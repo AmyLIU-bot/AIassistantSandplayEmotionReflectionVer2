@@ -125,7 +125,7 @@ const Index = () => {
             </div>
 
             {/* Right side — Login card */}
-            <div className="animate-fade-in-up animation-delay-200 pt-2">
+            <div className="animate-fade-in-up animation-delay-200 pt-[12%]">
               <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95">
                 <CardHeader className="pb-1 px-5 pt-5">
                   <CardTitle className="text-lg font-bold text-foreground">Login</CardTitle>
