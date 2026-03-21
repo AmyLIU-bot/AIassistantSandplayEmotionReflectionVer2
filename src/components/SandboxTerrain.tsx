@@ -82,35 +82,43 @@ function createSandTexture(): THREE.CanvasTexture {
   const imageData = ctx.createImageData(res, res);
   const data = imageData.data;
 
-  // Warm sand palette base
-  const baseR = 214, baseG = 189, baseB = 152;
+  // Light cream sand palette matching beach reference
+  const baseR = 228, baseG = 215, baseB = 185;
 
   for (let py = 0; py < res; py++) {
     for (let px = 0; px < res; px++) {
       const idx = (py * res + px) * 4;
       const nx = px / res, ny = py / res;
 
-      // Large organic drifts
-      const drift = fbm(nx * 4.3 + 0.7, ny * 4.3 + 1.3, 4) * 0.10;
-      // Medium clumps
-      const clump = fbm(nx * 12.1 + 5.0, ny * 11.7 + 3.0, 3) * 0.07;
-      // Fine grain — individual sand particles (much more prominent)
-      const fine = (hash(px * 3.17, py * 3.91) - 0.5) * 0.09;
-      // Extra fine grain layer for dense sand feel
-      const grain2 = (hash(px * 13.7 + 1.1, py * 11.3 + 2.7) - 0.5) * 0.06;
-      // Sparkle — bright specks like quartz grains catching light
+      // Broad flowing ripples — the dominant visual feature
+      const rippleAngle = 0.3;
+      const rippleCoord = nx * Math.cos(rippleAngle) + ny * Math.sin(rippleAngle);
+      const rippleWarp = fbm(nx * 3.5, ny * 3.5, 3) * 0.15;
+      const ripple1 = Math.sin((rippleCoord + rippleWarp) * 28) * 0.06;
+      const ripple2 = Math.sin((rippleCoord * 1.7 + rippleWarp * 0.8 + 0.5) * 42) * 0.03;
+
+      // Soft organic drifts — large tonal variation
+      const drift = fbm(nx * 3.0 + 0.7, ny * 3.0 + 1.3, 4) * 0.08;
+      // Medium clumps of sand
+      const clump = fbm(nx * 8.5 + 5.0, ny * 9.0 + 3.0, 3) * 0.04;
+      // Fine grain — individual sand particles
+      const fine = (hash(px * 3.17, py * 3.91) - 0.5) * 0.05;
+      // Extra fine grain
+      const grain2 = (hash(px * 13.7 + 1.1, py * 11.3 + 2.7) - 0.5) * 0.03;
+      // Sparkle — bright specks like quartz
       const sparkleVal = hash(px * 61.3, py * 59.7);
-      const sparkle = sparkleVal > 0.93 ? 0.12 : sparkleVal > 0.88 ? 0.05 : (sparkleVal < 0.07 ? -0.04 : 0);
-      // Subtle warm/cool shift
-      const warmShift = smoothNoise(nx * 8 + 2.5, ny * 8 + 1.5) * 0.04;
-      // Wind ripple lines — faint directional texture
-      const ripple = Math.sin(nx * 55 + fbm(nx * 2.5, ny * 2.5, 2) * 5) * 0.02;
+      const sparkle = sparkleVal > 0.95 ? 0.08 : sparkleVal > 0.90 ? 0.03 : 0;
+      // Warm/cool micro shift
+      const warmShift = smoothNoise(nx * 6 + 2.5, ny * 6 + 1.5) * 0.025;
 
-      const total = drift + clump + fine + grain2 + sparkle + ripple;
+      // Shadow in ripple valleys — creates depth
+      const rippleShadow = ripple1 < -0.02 ? ripple1 * 1.5 : ripple1;
 
-      data[idx]     = Math.max(0, Math.min(255, baseR + (total + warmShift * 0.5) * 255));
-      data[idx + 1] = Math.max(0, Math.min(255, baseG + (total) * 220));
-      data[idx + 2] = Math.max(0, Math.min(255, baseB + (total - warmShift * 0.3) * 190));
+      const total = drift + clump + fine + grain2 + sparkle + rippleShadow + ripple2;
+
+      data[idx]     = Math.max(0, Math.min(255, baseR + (total + warmShift) * 200));
+      data[idx + 1] = Math.max(0, Math.min(255, baseG + (total) * 180));
+      data[idx + 2] = Math.max(0, Math.min(255, baseB + (total - warmShift * 0.5) * 150));
       data[idx + 3] = 255;
     }
   }
