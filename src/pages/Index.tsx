@@ -89,8 +89,8 @@ const Index = () => {
         </div>
 
         {/* Content grid — both columns share the remaining height */}
-        <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5 flex items-center justify-center">
-          <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-4 lg:gap-5 items-center">
+        <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5">
+          <div className="w-full max-w-7xl mx-auto h-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-4 lg:gap-5">
 
             {/* Left side — glass panel */}
             <div className="relative flex flex-col h-full min-h-0 rounded-3xl px-5 md:px-7 py-5 md:py-6 overflow-hidden">
@@ -125,23 +125,23 @@ const Index = () => {
             </div>
 
             {/* Right side — Login card */}
-            <div className="animate-fade-in-up animation-delay-200">
-              <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95">
-                <CardHeader className="pb-1 px-5 pt-5">
-                  <CardTitle className="text-lg font-bold text-foreground">Login</CardTitle>
+            <div className="animate-fade-in-up animation-delay-200 h-full min-h-0 flex">
+              <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95 w-full flex flex-col justify-center">
+                <CardHeader className="pb-3 px-6 md:px-8 pt-6 md:pt-8 shrink-0">
+                  <CardTitle className="text-2xl font-bold text-foreground">Login</CardTitle>
                 </CardHeader>
-                <CardContent className="px-5 pb-5">
-                  <form onSubmit={handleLogin} className="space-y-3">
-                    <div className="space-y-1">
+                <CardContent className="px-6 md:px-8 pb-6 md:pb-8">
+                  <form onSubmit={handleLogin} className="space-y-5">
+                    <div className="space-y-1.5">
                       <Label htmlFor="email" className="text-sm font-medium text-foreground">Username or Email</Label>
-                      <Input id="email" type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="h-9 bg-background/60 backdrop-blur-sm" />
+                      <Input id="email" type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="h-11 bg-background/60 backdrop-blur-sm" />
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-1.5">
                       <Label htmlFor="password" className="text-sm font-medium text-foreground">Password</Label>
-                      <Input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="h-9 bg-background/60 backdrop-blur-sm" />
+                      <Input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="h-11 bg-background/60 backdrop-blur-sm" />
                     </div>
 
-                    <Button type="submit" className="w-full h-9 text-sm font-semibold rounded-lg">Login</Button>
+                    <Button type="submit" className="w-full h-11 text-base font-semibold rounded-lg">Login</Button>
 
                     <div className="relative flex items-center">
                       <div className="flex-1 border-t border-border" />
@@ -149,8 +149,8 @@ const Index = () => {
                       <div className="flex-1 border-t border-border" />
                     </div>
 
-                    <Button type="button" variant="google" className="w-full h-9 text-sm font-medium rounded-lg gap-2.5" onClick={() => navigate("/home")}>
-                      <svg className="w-4 h-4" viewBox="0 0 24 24">
+                    <Button type="button" variant="google" className="w-full h-11 text-base font-medium rounded-lg gap-3" onClick={() => navigate("/home")}>
+                      <svg className="w-5 h-5" viewBox="0 0 24 24">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
                         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
                         <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
@@ -159,7 +159,7 @@ const Index = () => {
                       Continue with Google
                     </Button>
 
-                    <p className="text-center text-xs text-muted-foreground">
+                    <p className="text-center text-sm text-muted-foreground">
                       Don't have an account?{" "}
                       <button type="button" className="text-primary font-semibold hover:underline underline-offset-2">Sign up</button>
                     </p>

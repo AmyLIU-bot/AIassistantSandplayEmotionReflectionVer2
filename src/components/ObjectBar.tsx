@@ -5,61 +5,41 @@ import personImg from "@/assets/objects/people/person.png";
 import womanImg from "@/assets/objects/people/woman.png";
 import childImg from "@/assets/objects/people/child.png";
 import elderImg from "@/assets/objects/people/elder.png";
-import coupleImg from "@/assets/objects/people/couple.png";
-import familyImg from "@/assets/objects/people/family.png";
 
 // Nature
 import treeImg from "@/assets/objects/nature/tree.png";
 import flowerImg from "@/assets/objects/nature/flower.png";
 import mountainImg from "@/assets/objects/nature/mountain.png";
 import seedlingImg from "@/assets/objects/nature/seedling.png";
-import mushroomImg from "@/assets/objects/nature/mushroom.png";
-import leafImg from "@/assets/objects/nature/leaf.png";
-import pondImg from "@/assets/objects/nature/pond.png";
 
 // Places
 import houseImg from "@/assets/objects/places/house.png";
 import schoolImg from "@/assets/objects/places/school.png";
 import bridgeImg from "@/assets/objects/places/bridge.png";
-import churchImg from "@/assets/objects/places/church.png";
-import hospitalImg from "@/assets/objects/places/hospital.png";
-import parkImg from "@/assets/objects/places/park.png";
 
 // Items
 import benchImg from "@/assets/objects/items/bench.png";
 import keyImg from "@/assets/objects/items/key.png";
 import bookImg from "@/assets/objects/items/book.png";
 import candleImg from "@/assets/objects/items/candle.png";
-import mirrorImg from "@/assets/objects/items/mirror.png";
-import clockImg from "@/assets/objects/items/clock.png";
-import lanternImg from "@/assets/objects/items/lantern.png";
-import umbrellaImg from "@/assets/objects/items/umbrella.png";
 
 // Weather
 import sunImg from "@/assets/objects/weather/sun.png";
 import cloudImg from "@/assets/objects/weather/cloud.png";
 import rainbowImg from "@/assets/objects/weather/rainbow.png";
 import moonImg from "@/assets/objects/weather/moon.png";
-import lightningImg from "@/assets/objects/weather/lightning.png";
-import snowflakeImg from "@/assets/objects/weather/snowflake.png";
 
 // Animals
 import dogImg from "@/assets/objects/animals/dog.png";
 import catImg from "@/assets/objects/animals/cat.png";
 import birdImg from "@/assets/objects/animals/bird.png";
 import butterflyImg from "@/assets/objects/animals/butterfly.png";
-import fishImg from "@/assets/objects/animals/fish.png";
-import rabbitImg from "@/assets/objects/animals/rabbit.png";
-import turtleImg from "@/assets/objects/animals/turtle.png";
 
 // Feelings
 import heartImg from "@/assets/objects/feelings/heart.png";
 import brokenHeartImg from "@/assets/objects/feelings/broken-heart.png";
 import starImg from "@/assets/objects/feelings/star.png";
 import tearImg from "@/assets/objects/feelings/tear.png";
-import fireImg from "@/assets/objects/feelings/fire.png";
-import crownImg from "@/assets/objects/feelings/crown.png";
-import harmonyImg from "@/assets/objects/feelings/harmony.png";
 
 interface ObjectItem {
   type: string;
@@ -81,8 +61,6 @@ const categories: Category[] = [
       { type: "Woman", image: womanImg },
       { type: "Child", image: childImg },
       { type: "Elder", image: elderImg },
-      { type: "Couple", image: coupleImg },
-      { type: "Family", image: familyImg },
     ],
   },
   {
@@ -93,9 +71,6 @@ const categories: Category[] = [
       { type: "Flower", image: flowerImg },
       { type: "Mountain", image: mountainImg },
       { type: "Seedling", image: seedlingImg },
-      { type: "Mushroom", image: mushroomImg },
-      { type: "Leaf", image: leafImg },
-      { type: "Pond", image: pondImg },
     ],
   },
   {
@@ -105,9 +80,6 @@ const categories: Category[] = [
       { type: "House", image: houseImg },
       { type: "School", image: schoolImg },
       { type: "Bridge", image: bridgeImg },
-      { type: "Church", image: churchImg },
-      { type: "Hospital", image: hospitalImg },
-      { type: "Park", image: parkImg },
     ],
   },
   {
@@ -118,10 +90,6 @@ const categories: Category[] = [
       { type: "Key", image: keyImg },
       { type: "Book", image: bookImg },
       { type: "Candle", image: candleImg },
-      { type: "Mirror", image: mirrorImg },
-      { type: "Clock", image: clockImg },
-      { type: "Lantern", image: lanternImg },
-      { type: "Umbrella", image: umbrellaImg },
     ],
   },
   {
@@ -132,8 +100,6 @@ const categories: Category[] = [
       { type: "Cloud", image: cloudImg },
       { type: "Rainbow", image: rainbowImg },
       { type: "Moon", image: moonImg },
-      { type: "Lightning", image: lightningImg },
-      { type: "Snowflake", image: snowflakeImg },
     ],
   },
   {
@@ -144,9 +110,6 @@ const categories: Category[] = [
       { type: "Cat", image: catImg },
       { type: "Bird", image: birdImg },
       { type: "Butterfly", image: butterflyImg },
-      { type: "Fish", image: fishImg },
-      { type: "Rabbit", image: rabbitImg },
-      { type: "Turtle", image: turtleImg },
     ],
   },
   {
@@ -157,9 +120,6 @@ const categories: Category[] = [
       { type: "Broken Heart", image: brokenHeartImg },
       { type: "Star", image: starImg },
       { type: "Tear", image: tearImg },
-      { type: "Fire", image: fireImg },
-      { type: "Crown", image: crownImg },
-      { type: "Harmony", image: harmonyImg },
     ],
   },
 ];
