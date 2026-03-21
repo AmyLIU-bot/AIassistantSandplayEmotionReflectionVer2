@@ -91,7 +91,7 @@ export default function SandboxPage() {
       <SandboxSidebar />
 
       {/* Center */}
-      <main className="flex-1 flex flex-col min-w-0 min-h-0 p-3 gap-3">
+      <main className="flex-1 flex flex-col min-w-0 min-h-0 p-3 gap-3 bg-secondary/30">
         <SandboxCanvas3D
           objects={objects}
           onUpdateObject={handleUpdateObject}

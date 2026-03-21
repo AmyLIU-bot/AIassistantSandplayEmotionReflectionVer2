@@ -53,15 +53,15 @@
     --font-display: 'Quicksand', sans-serif;
     --font-body: 'Nunito', sans-serif;
 
-    /* Amy's canvas tokens */
-    --canvas: 38 45% 88%;
-    --canvas-dot: 35 35% 78%;
-    --object-bar: 38 28% 94%;
-    --chat-bg: 40 30% 98%;
-    --chat-ai: 160 15% 92%;
-    --chat-user: 35 25% 91%;
-    --reflect: 160 22% 45%;
-    --reflect-foreground: 40 33% 98%;
+    /* Amy's canvas tokens — harmonised with nature palette */
+    --canvas: 140 20% 90%;
+    --canvas-dot: 140 15% 82%;
+    --object-bar: 140 18% 95%;
+    --chat-bg: 140 15% 97%;
+    --chat-ai: 150 20% 92%;
+    --chat-user: 152 25% 88%;
+    --reflect: 152 40% 48%;
+    --reflect-foreground: 0 0% 100%;
 
     /* Mahiro's mood tokens */
     --warm: 35 40% 95%;

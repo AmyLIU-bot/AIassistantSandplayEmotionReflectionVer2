@@ -64,8 +64,8 @@ export function ChatPanel({ onReflect, reflectionText }: ChatPanelProps) {
       {/* Header */}
       <div className="px-4 py-3 border-b border-border flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-medium text-foreground">Reflection Space</h2>
-          <p className="text-xs text-muted-foreground">A safe place to explore</p>
+          <h2 className="text-sm font-medium text-foreground" style={{ fontFamily: 'var(--font-display)' }}>Reflection Space</h2>
+          <p className="text-xs text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>A safe place to explore</p>
         </div>
         <button
           onClick={onReflect}
