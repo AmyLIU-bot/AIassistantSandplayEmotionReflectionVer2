@@ -89,14 +89,14 @@ const Index = () => {
         </div>
 
         {/* Content grid — both columns share the remaining height */}
-        <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5">
-          <div className="w-full max-w-7xl mx-auto h-full grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-4 lg:gap-5">
+        <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5 overflow-y-auto">
+          <div className="w-full max-w-5xl mx-auto flex flex-col gap-4 lg:gap-5">
 
-            {/* Left side — glass panel */}
-            <div className="relative flex flex-col h-full min-h-0 rounded-3xl px-5 md:px-7 py-5 md:py-6 overflow-hidden">
+            {/* Top — glass info panel */}
+            <div className="relative rounded-3xl px-5 md:px-7 py-5 md:py-6 overflow-hidden">
               <div className="absolute inset-0 -z-10 rounded-3xl backdrop-blur-sm" style={{ background: 'linear-gradient(135deg, hsl(140 20% 97% / 0.45), hsl(140 20% 97% / 0.25))' }} />
 
-              <div className="space-y-3 shrink-0">
+              <div className="space-y-3">
                 <h2 className="animate-fade-in-up animation-delay-100 text-3xl md:text-[2.6rem] font-bold leading-tight tracking-tight" style={{ color: 'hsl(150 15% 12%)' }}>
                   What is a Sandbox?
                 </h2>
@@ -112,25 +112,15 @@ const Index = () => {
                   <div className="w-2.5 h-2.5 rounded-full bg-primary/15" />
                 </div>
               </div>
-
-              {/* Demo video — fills remaining space */}
-              <div className="animate-fade-in-up animation-delay-400 mt-4 flex-1 min-h-[120px] rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm flex items-center justify-center">
-                <div className="text-center space-y-2 text-muted-foreground">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                    <svg className="w-5 h-5 text-primary ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                  </div>
-                  <p className="text-sm font-medium">Demo Video</p>
-                </div>
-              </div>
             </div>
 
-            {/* Right side — Login card */}
-            <div className="animate-fade-in-up animation-delay-200 h-full min-h-0 flex items-center">
-              <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95 w-full">
-                <CardHeader className="pb-2 px-5 md:px-6 pt-5 md:pt-6">
+            {/* Bottom — Login card, narrow and centered */}
+            <div className="animate-fade-in-up animation-delay-200 w-full max-w-sm mx-auto">
+              <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95">
+                <CardHeader className="pb-2 px-5 pt-5">
                   <CardTitle className="text-xl font-bold text-foreground">Login</CardTitle>
                 </CardHeader>
-                <CardContent className="px-5 md:px-6 pb-5 md:pb-6">
+                <CardContent className="px-5 pb-5">
                   <form onSubmit={handleLogin} className="space-y-3.5">
                     <div className="space-y-1">
                       <Label htmlFor="email" className="text-sm font-medium text-foreground">Username or Email</Label>
