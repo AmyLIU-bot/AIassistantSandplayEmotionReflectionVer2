@@ -229,13 +229,13 @@ export function SandboxOnboarding({ onComplete }: { onComplete: () => void }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[100]"
+          className="fixed inset-0 z-[100] pointer-events-none"
         >
-          {/* Subtle dim overlay with cutout */}
+          {/* Subtle dim overlay with cutout — allows clicks through the highlighted area */}
           <div
-            className="absolute inset-0 bg-foreground/15 transition-all duration-500"
+            className="absolute inset-0 bg-foreground/15 transition-all duration-500 pointer-events-auto"
             style={{ clipPath }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={handleNext}
           />
 
           {/* Highlight border around target */}
