@@ -51,11 +51,21 @@ const AppSidebar = () => {
       {/* Nav */}
       <nav className="flex-1 py-3 px-2 space-y-1 overflow-hidden">
         {/* Account section */}
-        <button
-          onClick={() => setAccountOpen(!accountOpen)}
-          className="flex items-center gap-3 w-full px-3 py-2 rounded-xl text-sm text-muted-foreground hover:bg-accent/50 transition-colors"
+        <Link
+          to="/home"
+          onClick={(e) => {
+            if (expanded) {
+              e.preventDefault();
+              setAccountOpen(!accountOpen);
+            }
+          }}
+          className={`flex items-center gap-3 w-full px-3 py-2 rounded-xl text-sm transition-colors ${
+            location.pathname === '/home' && !expanded
+              ? "bg-primary/10 text-primary font-medium"
+              : "text-muted-foreground hover:bg-accent/50"
+          }`}
         >
-          <User className="w-4 h-4 shrink-0" />
+          <Home className="w-4 h-4 shrink-0" />
           <AnimatePresence>
             {expanded && (
               <motion.div
@@ -64,12 +74,12 @@ const AppSidebar = () => {
                 exit={{ opacity: 0 }}
                 className="flex items-center justify-between flex-1 whitespace-nowrap"
               >
-                <span className="font-medium">Account</span>
+                <span className="font-medium">Home</span>
                 <ChevronDown className={`w-3 h-3 transition-transform ${accountOpen ? 'rotate-180' : ''}`} />
               </motion.div>
             )}
           </AnimatePresence>
-        </button>
+        </Link>
 
         <AnimatePresence>
           {accountOpen && expanded && (
