@@ -3,7 +3,11 @@ import { SandboxCanvas3D, type PlacedObject } from "@/components/SandboxCanvas3D
 import { ObjectBar } from "@/components/ObjectBar";
 import { ChatPanel } from "@/components/ChatPanel";
 import { CanvasToolbar } from "@/components/CanvasToolbar";
+import { ReflectionModal } from "@/components/ReflectionModal";
 import AppSidebar from "@/components/AppSidebar";
+import { saveReflection } from "@/lib/reflections";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const reflections = [
   "I notice you've placed the person near the tree — perhaps there's a part of you seeking grounding and connection with nature right now. What does that space feel like?",
@@ -15,8 +19,11 @@ const reflections = [
 export default function SandboxPage() {
   const [objects, setObjects] = useState<PlacedObject[]>([]);
   const [reflectionText, setReflectionText] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [finishReflection, setFinishReflection] = useState("");
   const historyRef = useRef<PlacedObject[][]>([[]]);
   const historyIndexRef = useRef(0);
+  const navigate = useNavigate();
 
   const pushHistory = (next: PlacedObject[]) => {
     const newHistory = historyRef.current.slice(0, historyIndexRef.current + 1);
@@ -75,7 +82,21 @@ export default function SandboxPage() {
     }
     const r = reflections[Math.floor(Math.random() * reflections.length)];
     setReflectionText(r);
+    setFinishReflection(r);
+    setModalOpen(true);
   }, [objects]);
+
+  const handleSaveReflection = useCallback(() => {
+    saveReflection({
+      id: Date.now().toString(),
+      text: finishReflection,
+      objectCount: objects.length,
+      objectTypes: objects.map((o) => o.type),
+      timestamp: new Date().toISOString(),
+    });
+    setModalOpen(false);
+    toast.success("Reflection saved to your activity!");
+  }, [finishReflection, objects]);
 
   const handleReflect = useCallback(() => {
     if (objects.length === 0) {
@@ -88,10 +109,8 @@ export default function SandboxPage() {
 
   return (
     <div className="flex h-screen w-full overflow-hidden">
-      {/* Shared app sidebar — fixed position, won't affect sandbox layout */}
       <AppSidebar />
 
-      {/* Main sandbox area — offset for the collapsed sidebar (68px) */}
       <div className="flex flex-1 h-full min-w-0" style={{ marginLeft: 80 }}>
         <main className="flex-1 flex flex-col min-w-0 min-h-0 p-3 gap-3 bg-secondary/30">
           <SandboxCanvas3D
@@ -114,6 +133,15 @@ export default function SandboxPage() {
 
         <ChatPanel onReflect={handleReflect} reflectionText={reflectionText} />
       </div>
+
+      <ReflectionModal
+        open={modalOpen}
+        reflection={finishReflection}
+        objectCount={objects.length}
+        objectTypes={objects.map((o) => o.type)}
+        onClose={() => setModalOpen(false)}
+        onSave={handleSaveReflection}
+      />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import { BookOpen, MessageCircle, Sparkles, Coffee } from "lucide-react";
+import { BookOpen, MessageCircle, Sparkles, Coffee, Leaf } from "lucide-react";
+import { getSavedReflections } from "@/lib/reflections";
+import { formatDistanceToNow } from "date-fns";
 
-const activities = [
+const defaultActivities = [
   { icon: BookOpen, text: "Journaled about today's feelings", time: "2 hours ago", color: "bg-calm" },
   { icon: MessageCircle, text: "Completed a mindfulness check-in", time: "5 hours ago", color: "bg-warm" },
   { icon: Sparkles, text: "Achieved a 7-day streak", time: "Yesterday", color: "bg-gentle" },
@@ -9,11 +11,22 @@ const activities = [
 ];
 
 const RecentActivity = () => {
+  const savedReflections = getSavedReflections();
+
+  const reflectionActivities = savedReflections.map((r) => ({
+    icon: Leaf,
+    text: r.text.length > 60 ? r.text.slice(0, 60) + "…" : r.text,
+    time: formatDistanceToNow(new Date(r.timestamp), { addSuffix: true }),
+    color: "bg-primary/10",
+  }));
+
+  const activities = [...reflectionActivities, ...defaultActivities];
+
   return (
     <div className="glass-card rounded-2xl p-5">
       <h3 className="text-sm font-semibold text-foreground mb-4">Recent Activity</h3>
       <div className="space-y-3">
-        {activities.map((activity, i) => (
+        {activities.slice(0, 8).map((activity, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, x: -8 }}
