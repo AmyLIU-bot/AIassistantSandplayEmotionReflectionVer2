@@ -64,7 +64,8 @@ export default function SandboxPage() {
       pushHistory(next);
       return next;
     });
-  }, [isViewMode]);
+    if (showOnboarding) setOnboardingSignal("object-placed");
+  }, [isViewMode, showOnboarding]);
 
   const handleUpdateObject = useCallback((id: string, updates: Partial<PlacedObject>) => {
     if (isViewMode) return;
