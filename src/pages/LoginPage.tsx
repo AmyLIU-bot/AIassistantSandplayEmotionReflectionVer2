@@ -15,7 +15,7 @@ const LoginPage = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     localStorage.removeItem("sandbox_sessions");
-    navigate("/home");
+    navigate("/sandbox");
   };
 
   return (
