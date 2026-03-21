@@ -906,6 +906,341 @@ function Object3D({
           </group>
         );
       }
+      case "couple": {
+        const h2 = config.height || 0.8;
+        return (
+          <group>
+            {/* Person 1 */}
+            <group position={[-0.12, 0, 0]}>
+              <mesh position={[0, -0.02, 0]}><capsuleGeometry args={[0.09, h2 * 0.22, 8, 12]} /><StylizedMat color="#5a7a6a" /></mesh>
+              <mesh position={[0, h2 * 0.35, 0]}><sphereGeometry args={[0.09, 16, 16]} /><StylizedMat color="#f0c8a0" roughness={0.5} /></mesh>
+              <mesh position={[0, h2 * 0.42, -0.02]}><sphereGeometry args={[0.08, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.6]} /><StylizedMat color="#5a3a2a" roughness={0.8} /></mesh>
+              <mesh position={[-0.06, -h2 * 0.32, 0]}><capsuleGeometry args={[0.03, h2 * 0.2, 6, 8]} /><StylizedMat color="#5a7a6a" roughness={0.7} /></mesh>
+              <mesh position={[0.06, -h2 * 0.32, 0]}><capsuleGeometry args={[0.03, h2 * 0.2, 6, 8]} /><StylizedMat color="#5a7a6a" roughness={0.7} /></mesh>
+            </group>
+            {/* Person 2 */}
+            <group position={[0.12, 0, 0]}>
+              <mesh position={[0, -0.02, 0]}><capsuleGeometry args={[0.09, h2 * 0.22, 8, 12]} /><StylizedMat color="#8b6b8a" /></mesh>
+              <mesh position={[0, h2 * 0.35, 0]}><sphereGeometry args={[0.09, 16, 16]} /><StylizedMat color="#f0c8a0" roughness={0.5} /></mesh>
+              <mesh position={[0, h2 * 0.42, -0.02]}><sphereGeometry args={[0.08, 12, 8, 0, Math.PI * 2, 0, Math.PI * 0.6]} /><StylizedMat color="#6a4030" roughness={0.8} /></mesh>
+              <mesh position={[-0.06, -h2 * 0.32, 0]}><capsuleGeometry args={[0.03, h2 * 0.2, 6, 8]} /><StylizedMat color="#8b6b8a" roughness={0.7} /></mesh>
+              <mesh position={[0.06, -h2 * 0.32, 0]}><capsuleGeometry args={[0.03, h2 * 0.2, 6, 8]} /><StylizedMat color="#8b6b8a" roughness={0.7} /></mesh>
+            </group>
+            {/* Joined hands hint */}
+            <mesh position={[0, 0.05, 0.05]}><sphereGeometry args={[0.03, 8, 8]} /><StylizedMat color="#f0c8a0" roughness={0.5} /></mesh>
+          </group>
+        );
+      }
+      case "family": {
+        const hf = config.height || 0.85;
+        return (
+          <group>
+            {/* Adult 1 */}
+            <group position={[-0.18, 0, 0]}>
+              <mesh position={[0, -0.02, 0]}><capsuleGeometry args={[0.08, hf * 0.2, 8, 10]} /><StylizedMat color="#5a6a8a" /></mesh>
+              <mesh position={[0, hf * 0.32, 0]}><sphereGeometry args={[0.08, 14, 14]} /><StylizedMat color="#f0c8a0" roughness={0.5} /></mesh>
+              <mesh position={[-0.05, -hf * 0.3, 0]}><capsuleGeometry args={[0.025, hf * 0.18, 6, 8]} /><StylizedMat color="#5a6a8a" roughness={0.7} /></mesh>
+              <mesh position={[0.05, -hf * 0.3, 0]}><capsuleGeometry args={[0.025, hf * 0.18, 6, 8]} /><StylizedMat color="#5a6a8a" roughness={0.7} /></mesh>
+            </group>
+            {/* Child */}
+            <group position={[0, -0.1, 0]}>
+              <mesh position={[0, -0.02, 0]}><capsuleGeometry args={[0.06, hf * 0.12, 8, 10]} /><StylizedMat color="#e0a060" /></mesh>
+              <mesh position={[0, hf * 0.2, 0]}><sphereGeometry args={[0.065, 14, 14]} /><StylizedMat color="#f5d8b8" roughness={0.5} /></mesh>
+              <mesh position={[-0.04, -hf * 0.2, 0]}><capsuleGeometry args={[0.02, hf * 0.12, 6, 8]} /><StylizedMat color="#e0a060" roughness={0.7} /></mesh>
+              <mesh position={[0.04, -hf * 0.2, 0]}><capsuleGeometry args={[0.02, hf * 0.12, 6, 8]} /><StylizedMat color="#e0a060" roughness={0.7} /></mesh>
+            </group>
+            {/* Adult 2 */}
+            <group position={[0.18, 0, 0]}>
+              <mesh position={[0, -0.02, 0]}><capsuleGeometry args={[0.08, hf * 0.2, 8, 10]} /><StylizedMat color="#8a6a7a" /></mesh>
+              <mesh position={[0, hf * 0.32, 0]}><sphereGeometry args={[0.08, 14, 14]} /><StylizedMat color="#f0c8a0" roughness={0.5} /></mesh>
+              <mesh position={[-0.05, -hf * 0.3, 0]}><capsuleGeometry args={[0.025, hf * 0.18, 6, 8]} /><StylizedMat color="#8a6a7a" roughness={0.7} /></mesh>
+              <mesh position={[0.05, -hf * 0.3, 0]}><capsuleGeometry args={[0.025, hf * 0.18, 6, 8]} /><StylizedMat color="#8a6a7a" roughness={0.7} /></mesh>
+            </group>
+          </group>
+        );
+      }
+      case "mushroom": {
+        return (
+          <group>
+            <mesh position={[0, -0.08, 0]}><cylinderGeometry args={[0.04, 0.06, 0.2, 8]} /><StylizedMat color="#f0e0c8" roughness={0.7} /></mesh>
+            <mesh position={[0, 0.06, 0]} scale={[1, 0.5, 1]}><sphereGeometry args={[0.16, 14, 12]} /><StylizedMat color="#c9a060" roughness={0.7} /></mesh>
+            {[0, 1, 2, 3, 4].map(i => {
+              const a = (i / 5) * Math.PI * 2;
+              return <mesh key={i} position={[Math.cos(a) * 0.08, 0.08, Math.sin(a) * 0.08]} scale={[1, 0.5, 1]}><sphereGeometry args={[0.03, 8, 8]} /><StylizedMat color="#f0e8d0" roughness={0.5} /></mesh>;
+            })}
+          </group>
+        );
+      }
+      case "leaf": {
+        return (
+          <group>
+            <mesh position={[0, -0.06, 0]} rotation={[0, 0, 0.1]}><cylinderGeometry args={[0.008, 0.012, 0.15, 6]} /><StylizedMat color="#4a7a3a" roughness={0.8} /></mesh>
+            <mesh position={[0.02, 0.04, 0]} rotation={[0, 0, -0.3]} scale={[1.5, 0.2, 0.8]}><sphereGeometry args={[0.1, 10, 8]} /><StylizedMat color="#6ab85a" roughness={0.7} /></mesh>
+            <mesh position={[-0.02, 0.06, 0]} rotation={[0, 0, 0.4]} scale={[1.3, 0.2, 0.7]}><sphereGeometry args={[0.08, 10, 8]} /><StylizedMat color="#7ac86a" roughness={0.7} /></mesh>
+          </group>
+        );
+      }
+      case "pond": {
+        return (
+          <group>
+            <mesh position={[0, -0.02, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[1, 1, 0.3]}>
+              <cylinderGeometry args={[0.35, 0.4, 0.04, 16]} />
+              <StylizedMat color="#70b8d8" roughness={0.2} emissiveIntensity={0.15} />
+            </mesh>
+            {[[-0.15, 0.01, 0.1], [0.1, 0.01, -0.08], [0.2, 0.01, 0.12]].map((p, i) => (
+              <mesh key={i} position={p as [number, number, number]} rotation={[-Math.PI / 2, 0, i * 0.8]} scale={[1, 1, 0.15]}>
+                <sphereGeometry args={[0.06, 8, 8]} />
+                <StylizedMat color="#4a9a3a" roughness={0.7} />
+              </mesh>
+            ))}
+          </group>
+        );
+      }
+      case "church": {
+        const hc = config.height || 1.0;
+        return (
+          <group>
+            <mesh position={[0, -hc * 0.1, 0]}><boxGeometry args={[0.4, hc * 0.5, 0.35]} /><StylizedMat color="#e8dcc8" roughness={0.75} /></mesh>
+            <mesh position={[0, hc * 0.2, 0]} rotation={[0, Math.PI / 4, 0]}><coneGeometry args={[0.32, hc * 0.25, 4]} /><StylizedMat color="#8a6a50" roughness={0.85} /></mesh>
+            <mesh position={[0, hc * 0.35, 0]}><boxGeometry args={[0.08, hc * 0.2, 0.08]} /><StylizedMat color="#d8c8b0" roughness={0.7} /></mesh>
+            <mesh position={[0, hc * 0.48, 0]}><coneGeometry args={[0.06, hc * 0.12, 4]} /><StylizedMat color="#8a6a50" roughness={0.85} /></mesh>
+            {/* Cross */}
+            <mesh position={[0, hc * 0.56, 0]}><boxGeometry args={[0.015, 0.06, 0.015]} /><StylizedMat color="#c0a040" roughness={0.3} /></mesh>
+            <mesh position={[0, hc * 0.57, 0]}><boxGeometry args={[0.04, 0.015, 0.015]} /><StylizedMat color="#c0a040" roughness={0.3} /></mesh>
+            {/* Door */}
+            <mesh position={[0, -hc * 0.22, 0.176]}><boxGeometry args={[0.08, hc * 0.22, 0.01]} /><StylizedMat color="#5a3a2a" roughness={0.8} /></mesh>
+            {/* Round window */}
+            <mesh position={[0, hc * 0.05, 0.176]} rotation={[0, 0, 0]}><cylinderGeometry args={[0.04, 0.04, 0.01, 12]} /><StylizedMat color="#7090c0" roughness={0.3} emissiveIntensity={0.2} /></mesh>
+          </group>
+        );
+      }
+      case "hospital": {
+        const hh = config.height || 0.9;
+        return (
+          <group>
+            <mesh position={[0, -hh * 0.08, 0]}><boxGeometry args={[0.5, hh * 0.55, 0.4]} /><StylizedMat color="#e8e0d8" roughness={0.7} /></mesh>
+            <mesh position={[0, hh * 0.22, 0]}><boxGeometry args={[0.55, 0.04, 0.45]} /><StylizedMat color="#c0b8a8" roughness={0.8} /></mesh>
+            {/* Red cross */}
+            <mesh position={[0, hh * 0.08, 0.201]}><boxGeometry args={[0.03, 0.1, 0.01]} /><StylizedMat color="#d04040" roughness={0.5} /></mesh>
+            <mesh position={[0, hh * 0.08, 0.201]}><boxGeometry args={[0.1, 0.03, 0.01]} /><StylizedMat color="#d04040" roughness={0.5} /></mesh>
+            {/* Door */}
+            <mesh position={[0, -hh * 0.2, 0.201]}><boxGeometry args={[0.12, hh * 0.25, 0.01]} /><StylizedMat color="#c04040" roughness={0.7} /></mesh>
+            {/* Windows */}
+            {[-0.16, 0.16].map((x, i) => (
+              <mesh key={i} position={[x, hh * 0.02, 0.201]}><boxGeometry args={[0.08, 0.08, 0.01]} /><StylizedMat color="#a0c8e0" roughness={0.3} emissiveIntensity={0.15} /></mesh>
+            ))}
+          </group>
+        );
+      }
+      case "park": {
+        return (
+          <group>
+            {/* Ground */}
+            <mesh position={[0, -0.18, 0]} rotation={[-Math.PI / 2, 0, 0]}><cylinderGeometry args={[0.4, 0.4, 0.02, 16]} /><StylizedMat color="#5a9a4a" roughness={0.9} /></mesh>
+            {/* Tree 1 */}
+            <group position={[-0.15, 0, 0.05]}>
+              <mesh position={[0, -0.05, 0]}><cylinderGeometry args={[0.025, 0.04, 0.2, 6]} /><StylizedMat color="#7a5a3a" roughness={0.9} /></mesh>
+              <mesh position={[0, 0.12, 0]}><sphereGeometry args={[0.12, 10, 10]} /><StylizedMat color="#4a8a3a" roughness={0.85} /></mesh>
+            </group>
+            {/* Tree 2 */}
+            <group position={[0.18, 0, -0.08]}>
+              <mesh position={[0, -0.05, 0]}><cylinderGeometry args={[0.02, 0.035, 0.18, 6]} /><StylizedMat color="#7a5a3a" roughness={0.9} /></mesh>
+              <mesh position={[0, 0.1, 0]}><sphereGeometry args={[0.1, 10, 10]} /><StylizedMat color="#5a9a4a" roughness={0.85} /></mesh>
+            </group>
+            {/* Bench */}
+            <mesh position={[0.02, -0.12, 0.12]}><boxGeometry args={[0.15, 0.02, 0.05]} /><StylizedMat color="#8a6a4a" roughness={0.85} /></mesh>
+          </group>
+        );
+      }
+      case "mirror": {
+        const hm = config.height || 0.5;
+        return (
+          <group>
+            {/* Frame */}
+            <mesh rotation={[0, 0, 0]}><torusGeometry args={[0.15, 0.02, 10, 20]} /><StylizedMat color="#c0a0c0" roughness={0.4} emissiveIntensity={0.15} /></mesh>
+            {/* Glass */}
+            <mesh><cylinderGeometry args={[0.14, 0.14, 0.01, 20]} /><meshStandardMaterial color="#c0d8e8" roughness={0.05} metalness={0.8} /></mesh>
+            {/* Handle */}
+            <mesh position={[0, -0.2, 0]}><cylinderGeometry args={[0.02, 0.025, 0.12, 8]} /><StylizedMat color="#8a6a8a" roughness={0.6} /></mesh>
+          </group>
+        );
+      }
+      case "clock": {
+        return (
+          <group>
+            {/* Body */}
+            <mesh><cylinderGeometry args={[0.16, 0.16, 0.03, 20]} /><StylizedMat color="#e8d8b0" roughness={0.6} /></mesh>
+            {/* Face */}
+            <mesh position={[0, 0, 0.016]}><cylinderGeometry args={[0.14, 0.14, 0.005, 20]} /><meshStandardMaterial color="#f8f4e8" roughness={0.4} /></mesh>
+            {/* Hour hand */}
+            <mesh position={[0, 0.04, 0.02]} rotation={[0, 0, 0.3]}><boxGeometry args={[0.012, 0.08, 0.005]} /><meshStandardMaterial color="#2a2a3a" /></mesh>
+            {/* Minute hand */}
+            <mesh position={[0.03, -0.01, 0.02]} rotation={[0, 0, -0.8]}><boxGeometry args={[0.008, 0.1, 0.005]} /><meshStandardMaterial color="#2a2a3a" /></mesh>
+            {/* Center dot */}
+            <mesh position={[0, 0, 0.025]}><sphereGeometry args={[0.01, 8, 8]} /><meshStandardMaterial color="#2a2a3a" /></mesh>
+          </group>
+        );
+      }
+      case "lantern": {
+        const hl = config.height || 0.5;
+        return (
+          <group>
+            {/* Base */}
+            <mesh position={[0, -hl * 0.35, 0]}><cylinderGeometry args={[0.08, 0.1, 0.04, 8]} /><StylizedMat color="#6a4a30" roughness={0.85} /></mesh>
+            {/* Body frame */}
+            <mesh position={[0, -hl * 0.05, 0]}><cylinderGeometry args={[0.07, 0.08, hl * 0.45, 6]} /><meshStandardMaterial color="#ffd880" transparent opacity={0.5} roughness={0.2} emissive="#ff9944" emissiveIntensity={0.4} /></mesh>
+            {/* Top */}
+            <mesh position={[0, hl * 0.18, 0]}><coneGeometry args={[0.08, 0.08, 6]} /><StylizedMat color="#6a4a30" roughness={0.85} /></mesh>
+            {/* Handle */}
+            <mesh position={[0, hl * 0.3, 0]} rotation={[0, 0, 0]}><torusGeometry args={[0.04, 0.008, 6, 12, Math.PI]} /><StylizedMat color="#6a4a30" roughness={0.8} /></mesh>
+          </group>
+        );
+      }
+      case "umbrella": {
+        return (
+          <group>
+            {/* Canopy */}
+            <mesh position={[0, 0.1, 0]} scale={[1, 0.35, 1]}><sphereGeometry args={[0.2, 14, 8, 0, Math.PI * 2, 0, Math.PI * 0.5]} /><StylizedMat color="#d090a0" roughness={0.5} /></mesh>
+            {/* Pole */}
+            <mesh position={[0, -0.08, 0]}><cylinderGeometry args={[0.008, 0.008, 0.35, 6]} /><StylizedMat color="#4a4a5a" roughness={0.4} /></mesh>
+            {/* Handle */}
+            <mesh position={[0, -0.26, 0.02]} rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[0.025, 0.006, 6, 10, Math.PI]} /><StylizedMat color="#4a4a5a" roughness={0.4} /></mesh>
+          </group>
+        );
+      }
+      case "lightning": {
+        return (
+          <group>
+            <mesh position={[0, 0.08, 0]} rotation={[0, 0, 0.15]}><boxGeometry args={[0.08, 0.12, 0.03]} /><StylizedMat color="#ffd740" roughness={0.3} emissive="#ff9900" emissiveIntensity={0.4} /></mesh>
+            <mesh position={[0.02, -0.02, 0]} rotation={[0, 0, -0.3]}><boxGeometry args={[0.1, 0.1, 0.03]} /><StylizedMat color="#ffd740" roughness={0.3} emissive="#ff9900" emissiveIntensity={0.4} /></mesh>
+            <mesh position={[0, -0.12, 0]} rotation={[0, 0, 0.15]}><coneGeometry args={[0.04, 0.1, 4]} /><StylizedMat color="#ffe060" roughness={0.3} emissive="#ff9900" emissiveIntensity={0.35} /></mesh>
+          </group>
+        );
+      }
+      case "snowflake": {
+        return (
+          <group>
+            {[0, 1, 2, 3, 4, 5].map(i => {
+              const angle = (i / 6) * Math.PI * 2;
+              return (
+                <mesh key={i} position={[Math.cos(angle) * 0.06, Math.sin(angle) * 0.06, 0]} rotation={[0, 0, angle]}>
+                  <boxGeometry args={[0.015, 0.12, 0.01]} />
+                  <StylizedMat color="#a0d8f0" roughness={0.3} emissive="#70b0d0" emissiveIntensity={0.2} />
+                </mesh>
+              );
+            })}
+            <mesh><sphereGeometry args={[0.03, 10, 10]} /><StylizedMat color="#c0e8f8" roughness={0.2} emissive="#70b0d0" emissiveIntensity={0.25} /></mesh>
+          </group>
+        );
+      }
+      case "fish": {
+        return (
+          <group>
+            {/* Body */}
+            <mesh scale={[1.3, 0.7, 0.6]}><sphereGeometry args={[0.1, 14, 12]} /><StylizedMat color="#e09050" roughness={0.5} /></mesh>
+            {/* Tail */}
+            <mesh position={[-0.14, 0, 0]} rotation={[0, 0, Math.PI / 4]} scale={[0.6, 1, 0.3]}><sphereGeometry args={[0.06, 8, 8]} /><StylizedMat color="#d07040" roughness={0.5} /></mesh>
+            {/* Dorsal fin */}
+            <mesh position={[0, 0.08, 0]} rotation={[0, 0, 0]} scale={[0.8, 1, 0.15]}><coneGeometry args={[0.04, 0.06, 4]} /><StylizedMat color="#d08050" roughness={0.5} /></mesh>
+            {/* Eye */}
+            <mesh position={[0.08, 0.02, 0.05]}><sphereGeometry args={[0.015, 8, 8]} /><meshStandardMaterial color="#1a1a1a" /></mesh>
+          </group>
+        );
+      }
+      case "rabbit": {
+        return (
+          <group>
+            {/* Body */}
+            <mesh position={[0, -0.04, 0]} scale={[0.8, 1, 0.8]}><sphereGeometry args={[0.1, 14, 12]} /><StylizedMat color="#e0c8b0" roughness={0.7} /></mesh>
+            {/* Head */}
+            <mesh position={[0, 0.1, 0]}><sphereGeometry args={[0.08, 14, 14]} /><StylizedMat color="#e0c8b0" roughness={0.65} /></mesh>
+            {/* Ears */}
+            <mesh position={[-0.03, 0.22, 0]} rotation={[0.1, 0, -0.1]}><capsuleGeometry args={[0.018, 0.08, 6, 8]} /><StylizedMat color="#e0c8b0" roughness={0.7} /></mesh>
+            <mesh position={[0.03, 0.22, 0]} rotation={[-0.1, 0, 0.1]}><capsuleGeometry args={[0.018, 0.08, 6, 8]} /><StylizedMat color="#e0c8b0" roughness={0.7} /></mesh>
+            {/* Inner ears */}
+            <mesh position={[-0.03, 0.22, 0.005]} rotation={[0.1, 0, -0.1]}><capsuleGeometry args={[0.01, 0.06, 6, 8]} /><StylizedMat color="#e0a8a0" roughness={0.6} /></mesh>
+            <mesh position={[0.03, 0.22, 0.005]} rotation={[-0.1, 0, 0.1]}><capsuleGeometry args={[0.01, 0.06, 6, 8]} /><StylizedMat color="#e0a8a0" roughness={0.6} /></mesh>
+            {/* Eyes */}
+            <mesh position={[-0.03, 0.12, 0.06]}><sphereGeometry args={[0.012, 8, 8]} /><meshStandardMaterial color="#3a2020" /></mesh>
+            <mesh position={[0.03, 0.12, 0.06]}><sphereGeometry args={[0.012, 8, 8]} /><meshStandardMaterial color="#3a2020" /></mesh>
+            {/* Nose */}
+            <mesh position={[0, 0.09, 0.07]}><sphereGeometry args={[0.008, 8, 8]} /><StylizedMat color="#e0a0a0" roughness={0.5} /></mesh>
+            {/* Feet */}
+            <mesh position={[-0.04, -0.14, 0.02]} scale={[0.6, 0.3, 1]}><sphereGeometry args={[0.03, 8, 8]} /><StylizedMat color="#e0c8b0" roughness={0.7} /></mesh>
+            <mesh position={[0.04, -0.14, 0.02]} scale={[0.6, 0.3, 1]}><sphereGeometry args={[0.03, 8, 8]} /><StylizedMat color="#e0c8b0" roughness={0.7} /></mesh>
+          </group>
+        );
+      }
+      case "turtle": {
+        return (
+          <group>
+            {/* Shell */}
+            <mesh position={[0, 0.02, 0]} scale={[1, 0.5, 0.8]}><sphereGeometry args={[0.14, 14, 10]} /><StylizedMat color="#5a8a50" roughness={0.8} /></mesh>
+            {/* Shell pattern */}
+            {[[0, 0.07, 0], [0.05, 0.06, 0.04], [-0.05, 0.06, -0.04]].map((p, i) => (
+              <mesh key={i} position={p as [number, number, number]} scale={[1, 0.5, 0.8]}><sphereGeometry args={[0.04, 8, 8]} /><StylizedMat color="#4a7a40" roughness={0.85} /></mesh>
+            ))}
+            {/* Head */}
+            <mesh position={[0.14, -0.02, 0]}><sphereGeometry args={[0.04, 10, 10]} /><StylizedMat color="#7ab868" roughness={0.6} /></mesh>
+            {/* Eyes */}
+            <mesh position={[0.17, 0, 0.025]}><sphereGeometry args={[0.008, 6, 6]} /><meshStandardMaterial color="#1a1a1a" /></mesh>
+            {/* Legs */}
+            {[[-0.06, -0.06, 0.08], [-0.06, -0.06, -0.08], [0.06, -0.06, 0.08], [0.06, -0.06, -0.08]].map((p, i) => (
+              <mesh key={i} position={p as [number, number, number]} scale={[0.7, 0.5, 0.7]}><sphereGeometry args={[0.03, 8, 8]} /><StylizedMat color="#7ab868" roughness={0.7} /></mesh>
+            ))}
+            {/* Tail */}
+            <mesh position={[-0.15, -0.04, 0]}><coneGeometry args={[0.015, 0.04, 4]} /><StylizedMat color="#7ab868" roughness={0.7} /></mesh>
+          </group>
+        );
+      }
+      case "fire": {
+        return (
+          <group>
+            {/* Outer flame */}
+            <mesh position={[0, 0.04, 0]}><coneGeometry args={[0.12, 0.3, 10]} /><meshStandardMaterial color="#e07020" roughness={0.4} emissive="#ff6600" emissiveIntensity={0.5} /></mesh>
+            {/* Inner flame */}
+            <mesh position={[0, 0.02, 0]}><coneGeometry args={[0.07, 0.2, 8]} /><meshStandardMaterial color="#ffa040" roughness={0.3} emissive="#ff9900" emissiveIntensity={0.6} /></mesh>
+            {/* Core */}
+            <mesh position={[0, -0.02, 0]}><coneGeometry args={[0.04, 0.12, 6]} /><meshStandardMaterial color="#ffe080" roughness={0.2} emissive="#ffcc00" emissiveIntensity={0.7} /></mesh>
+          </group>
+        );
+      }
+      case "crown": {
+        return (
+          <group>
+            {/* Band */}
+            <mesh position={[0, -0.02, 0]}><cylinderGeometry args={[0.12, 0.13, 0.06, 12]} /><StylizedMat color="#e0b030" roughness={0.3} emissive="#c09020" emissiveIntensity={0.25} /></mesh>
+            {/* Points */}
+            {[0, 1, 2, 3, 4].map(i => {
+              const a = (i / 5) * Math.PI * 2;
+              return <mesh key={i} position={[Math.cos(a) * 0.1, 0.06, Math.sin(a) * 0.1]}><coneGeometry args={[0.025, 0.08, 4]} /><StylizedMat color="#e0b030" roughness={0.3} emissive="#c09020" emissiveIntensity={0.3} /></mesh>;
+            })}
+            {/* Gems */}
+            {[0, 2, 4].map(i => {
+              const a = (i / 5) * Math.PI * 2;
+              return <mesh key={i} position={[Math.cos(a) * 0.12, -0.01, Math.sin(a) * 0.12]}><sphereGeometry args={[0.015, 8, 8]} /><StylizedMat color="#d06060" roughness={0.2} emissiveIntensity={0.3} /></mesh>;
+            })}
+          </group>
+        );
+      }
+      case "harmony": {
+        return (
+          <group>
+            {/* Dove body */}
+            <mesh scale={[1, 0.7, 0.7]}><sphereGeometry args={[0.08, 12, 10]} /><StylizedMat color="#e8e0d0" roughness={0.5} /></mesh>
+            {/* Head */}
+            <mesh position={[0.08, 0.04, 0]}><sphereGeometry args={[0.045, 10, 10]} /><StylizedMat color="#e8e0d0" roughness={0.5} /></mesh>
+            {/* Beak */}
+            <mesh position={[0.12, 0.03, 0]} rotation={[0, 0, -0.3]}><coneGeometry args={[0.01, 0.03, 4]} /><StylizedMat color="#e0a030" roughness={0.5} /></mesh>
+            {/* Wings */}
+            <mesh position={[0, 0.04, 0.06]} rotation={[0.5, 0, 0.3]} scale={[1.2, 0.1, 0.7]}><sphereGeometry args={[0.06, 8, 8]} /><StylizedMat color="#f0e8e0" roughness={0.5} /></mesh>
+            <mesh position={[0, 0.04, -0.06]} rotation={[-0.5, 0, 0.3]} scale={[1.2, 0.1, 0.7]}><sphereGeometry args={[0.06, 8, 8]} /><StylizedMat color="#f0e8e0" roughness={0.5} /></mesh>
+            {/* Olive branch */}
+            <mesh position={[0.1, -0.02, 0]} rotation={[0, 0, -0.5]}><cylinderGeometry args={[0.004, 0.004, 0.1, 4]} /><StylizedMat color="#5a7a3a" roughness={0.8} /></mesh>
+            <mesh position={[0.14, -0.04, 0]} rotation={[0, 0, -0.3]} scale={[1, 0.3, 0.6]}><sphereGeometry args={[0.02, 6, 6]} /><StylizedMat color="#6a9a4a" roughness={0.7} /></mesh>
+          </group>
+        );
+      }
       default:
         return (
           <mesh>
