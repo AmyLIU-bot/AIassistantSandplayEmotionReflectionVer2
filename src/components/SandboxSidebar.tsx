@@ -41,7 +41,7 @@ export function SandboxSidebar() {
                   className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors duration-150
                     ${isActive
                       ? "bg-primary/10 text-primary font-medium"
-                      : "text-sidebar-foreground hover:bg-sidebar-accent"
+                      : "text-muted-foreground hover:bg-secondary"
                     }
                   `}
                 >
