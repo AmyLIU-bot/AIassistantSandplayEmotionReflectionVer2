@@ -11,7 +11,6 @@ const accountSubItems = [
 
 const mainItems = [
   { title: "Sandbox", path: "/sandbox", icon: Play },
-  { title: "Introduction", path: "/introduction", icon: BookOpen },
   { title: "Contact Us", path: "/contact", icon: Mail },
 ];
 
