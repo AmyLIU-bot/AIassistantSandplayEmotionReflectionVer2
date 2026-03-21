@@ -1545,6 +1545,7 @@ export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDro
   return (
     <div
       ref={containerRef}
+      data-onboarding="canvas"
       className="relative flex-1 rounded-xl overflow-hidden border border-border/10"
       onDragOver={handleDragOver}
       onDrop={handleDrop}
