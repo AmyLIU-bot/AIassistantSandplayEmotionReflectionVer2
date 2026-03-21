@@ -29,9 +29,16 @@ const steps: OnboardingStep[] = [
     arrowDirection: "down",
   },
   {
-    title: "Control Bar",
-    description: "You can change the sandbox terrain and environment here.",
+    title: "Terrain & Environment",
+    description: "You can change the sandbox terrain and environment here. Try different shapes and layouts.",
     icon: <Layers className="w-5 h-5" />,
+    target: "terrain-selector",
+    arrowDirection: "down",
+  },
+  {
+    title: "Process Controls",
+    description: "Use these buttons to undo, redo, clear all objects, or finish your session.",
+    icon: <GripHorizontal className="w-5 h-5" />,
     target: "toolbar",
   },
   {
