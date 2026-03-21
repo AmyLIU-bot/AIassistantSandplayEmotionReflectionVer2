@@ -1,50 +1,67 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { BookOpen, MessageCircle, Sparkles, Coffee, Leaf } from "lucide-react";
-import { getSavedReflections } from "@/lib/reflections";
+import { Layers, Eye, Inbox } from "lucide-react";
+import { getSavedSessions, type SandboxSession } from "@/lib/sandboxSessions";
+import { SessionViewerModal } from "@/components/SessionViewerModal";
 import { formatDistanceToNow } from "date-fns";
-
-const defaultActivities = [
-  { icon: BookOpen, text: "Journaled about today's feelings", time: "2 hours ago", color: "bg-calm" },
-  { icon: MessageCircle, text: "Completed a mindfulness check-in", time: "5 hours ago", color: "bg-warm" },
-  { icon: Sparkles, text: "Achieved a 7-day streak", time: "Yesterday", color: "bg-gentle" },
-  { icon: Coffee, text: "Set morning routine reminder", time: "2 days ago", color: "bg-accent" },
-];
+import { Button } from "@/components/ui/button";
 
 const RecentActivity = () => {
-  const savedReflections = getSavedReflections();
-
-  const reflectionActivities = savedReflections.map((r) => ({
-    icon: Leaf,
-    text: r.text.length > 60 ? r.text.slice(0, 60) + "…" : r.text,
-    time: formatDistanceToNow(new Date(r.timestamp), { addSuffix: true }),
-    color: "bg-primary/10",
-  }));
-
-  const activities = [...reflectionActivities, ...defaultActivities];
+  const sessions = getSavedSessions();
+  const [viewSession, setViewSession] = useState<SandboxSession | null>(null);
 
   return (
-    <div className="glass-card rounded-2xl p-5">
-      <h3 className="text-sm font-semibold text-foreground mb-4">Recent Activity</h3>
-      <div className="space-y-3">
-        {activities.slice(0, 8).map((activity, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="flex items-start gap-3"
-          >
-            <div className={`w-8 h-8 rounded-xl ${activity.color} flex items-center justify-center shrink-0`}>
-              <activity.icon className="w-4 h-4 text-foreground/70" />
+    <>
+      <div className="glass-card rounded-2xl p-5">
+        <h3 className="text-sm font-semibold text-foreground mb-4">Recent Activity</h3>
+
+        {sessions.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-8 text-center">
+            <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center mb-3">
+              <Inbox className="w-5 h-5 text-muted-foreground" />
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm text-foreground">{activity.text}</p>
-              <p className="text-xs text-muted-foreground">{activity.time}</p>
-            </div>
-          </motion.div>
-        ))}
+            <p className="text-sm text-muted-foreground">No recent Sandbox activity yet.</p>
+            <p className="text-xs text-muted-foreground/70 mt-1">
+              Complete a sandbox session to see it here.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {sessions.slice(0, 6).map((session, i) => (
+              <motion.div
+                key={session.id}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.08 }}
+                className="flex items-center gap-3"
+              >
+                <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <Layers className="w-4 h-4 text-primary" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-foreground truncate">{session.label}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {session.objectCount} object{session.objectCount !== 1 ? "s" : ""} ·{" "}
+                    {formatDistanceToNow(new Date(session.timestamp), { addSuffix: true })}
+                  </p>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-7 px-2 text-xs gap-1 text-muted-foreground hover:text-foreground shrink-0"
+                  onClick={() => setViewSession(session)}
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  View
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+
+      <SessionViewerModal session={viewSession} onClose={() => setViewSession(null)} />
+    </>
   );
 };
 
