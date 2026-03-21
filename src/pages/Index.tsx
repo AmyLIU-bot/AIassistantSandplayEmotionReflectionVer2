@@ -89,8 +89,8 @@ const Index = () => {
         </div>
 
         {/* Content grid — both columns share the remaining height */}
-        <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5">
-          <div className="w-full max-w-7xl mx-auto h-full grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-4 lg:gap-5 items-start">
+        <div className="flex-1 min-h-0 px-4 md:px-8 pb-4 md:pb-5 flex items-center justify-center">
+          <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-[1.4fr_0.6fr] gap-4 lg:gap-5 items-center">
 
             {/* Left side — glass panel */}
             <div className="relative flex flex-col h-full min-h-0 rounded-3xl px-5 md:px-7 py-5 md:py-6 overflow-hidden">
@@ -125,7 +125,7 @@ const Index = () => {
             </div>
 
             {/* Right side — Login card */}
-            <div className="animate-fade-in-up animation-delay-200 pt-[12%]">
+            <div className="animate-fade-in-up animation-delay-200">
               <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95">
                 <CardHeader className="pb-1 px-5 pt-5">
                   <CardTitle className="text-lg font-bold text-foreground">Login</CardTitle>
