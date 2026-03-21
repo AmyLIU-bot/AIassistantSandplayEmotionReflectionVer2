@@ -205,21 +205,20 @@ export function SandboxOnboarding({ onComplete }: { onComplete: () => void }) {
   const viewport = { w: window.innerWidth, h: window.innerHeight };
   const pad = 8;
 
-  // Build clip path to dim everything except target
-  const clipPath = targetRect
-    ? `polygon(
-        0% 0%, 0% 100%, 100% 100%, 100% 0%, 0% 0%,
-        ${targetRect.left - pad}px ${targetRect.top - pad}px,
-        ${targetRect.left - pad}px ${targetRect.bottom + pad}px,
-        ${targetRect.right + pad}px ${targetRect.bottom + pad}px,
-        ${targetRect.right + pad}px ${targetRect.top - pad}px,
-        ${targetRect.left - pad}px ${targetRect.top - pad}px
-      )`
-    : undefined;
-
   const tooltipPos = targetRect
     ? getTooltipPosition(targetRect, viewport)
     : { top: viewport.h / 2 - 90, left: viewport.w / 2 - 160 };
+
+  // Build 4 overlay rects around the target cutout (leaves target area truly uncovered)
+  const dimStyle = "fixed bg-foreground/15 transition-all duration-500 pointer-events-auto";
+  const cutout = targetRect
+    ? {
+        left: targetRect.left - pad,
+        top: targetRect.top - pad,
+        right: targetRect.right + pad,
+        bottom: targetRect.bottom + pad,
+      }
+    : null;
 
   return (
     <AnimatePresence>
@@ -231,12 +230,21 @@ export function SandboxOnboarding({ onComplete }: { onComplete: () => void }) {
           transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[100] pointer-events-none"
         >
-          {/* Subtle dim overlay with cutout — allows clicks through the highlighted area */}
-          <div
-            className="absolute inset-0 bg-foreground/15 transition-all duration-500 pointer-events-auto"
-            style={{ clipPath }}
-            onClick={handleNext}
-          />
+          {/* 4 dim panels around the target — target area is completely uncovered */}
+          {cutout ? (
+            <>
+              {/* Top */}
+              <div className={dimStyle} style={{ top: 0, left: 0, right: 0, height: cutout.top }} onClick={handleNext} />
+              {/* Bottom */}
+              <div className={dimStyle} style={{ top: cutout.bottom, left: 0, right: 0, bottom: 0 }} onClick={handleNext} />
+              {/* Left */}
+              <div className={dimStyle} style={{ top: cutout.top, left: 0, width: cutout.left, height: cutout.bottom - cutout.top }} onClick={handleNext} />
+              {/* Right */}
+              <div className={dimStyle} style={{ top: cutout.top, left: cutout.right, right: 0, height: cutout.bottom - cutout.top }} onClick={handleNext} />
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-foreground/15 pointer-events-auto" onClick={handleNext} />
+          )}
 
           {/* Highlight border around target */}
           {targetRect && (
