@@ -21,7 +21,7 @@ export function CanvasToolbar({
   hasObjects,
 }: CanvasToolbarProps) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2" data-onboarding="toolbar">
       <Button
         variant="outline"
         size="sm"

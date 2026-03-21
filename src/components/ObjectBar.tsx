@@ -219,6 +219,7 @@ export function ObjectBar() {
         {categories.map(({ name, icon }) => (
           <button
             key={name}
+            data-onboarding={name === categories[0]?.name ? "objectbar-first" : undefined}
             onMouseEnter={() => setActiveCategory(name)}
             className={`flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg transition-all duration-150 active:scale-95 ${
               activeCategory === name

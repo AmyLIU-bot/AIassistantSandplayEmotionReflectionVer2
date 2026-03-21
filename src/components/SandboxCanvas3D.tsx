@@ -1570,7 +1570,7 @@ export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDro
       </Canvas>
 
       {/* Terrain selector — top left */}
-      <div className="absolute top-2 left-2 z-10">
+      <div className="absolute top-2 left-2 z-10" data-onboarding="terrain-selector">
         <button
           onClick={() => setShowTerrainPicker((v) => !v)}
           className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-card/90 backdrop-blur-sm border border-border/50 shadow-sm text-muted-foreground hover:text-foreground transition-colors active:scale-95 text-[11px] font-medium select-none"
