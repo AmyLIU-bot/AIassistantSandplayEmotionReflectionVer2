@@ -7,6 +7,7 @@ export interface SandboxSession {
   objects: PlacedObject[];
   objectCount: number;
   objectTypes: string[];
+  reflection?: string;
 }
 
 const STORAGE_KEY = "sandbox_sessions";
@@ -24,7 +25,7 @@ export function getSessionById(id: string): SandboxSession | null {
   return getSavedSessions().find((s) => s.id === id) ?? null;
 }
 
-export function saveSession(objects: PlacedObject[]): SandboxSession {
+export function saveSession(objects: PlacedObject[], reflection?: string): SandboxSession {
   const session: SandboxSession = {
     id: Date.now().toString(),
     label: "Sandbox session completed",
@@ -32,6 +33,7 @@ export function saveSession(objects: PlacedObject[]): SandboxSession {
     objects: [...objects],
     objectCount: objects.length,
     objectTypes: [...new Set(objects.map((o) => o.type))],
+    reflection,
   };
   const existing = getSavedSessions();
   existing.unshift(session);
