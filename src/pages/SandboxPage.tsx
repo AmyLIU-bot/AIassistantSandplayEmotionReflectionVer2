@@ -11,7 +11,7 @@ import { saveSession, getSessionById } from "@/lib/sandboxSessions";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { format } from "date-fns";
-import { ArrowLeft, Eye } from "lucide-react";
+import { ArrowLeft, Eye, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const reflections = [
