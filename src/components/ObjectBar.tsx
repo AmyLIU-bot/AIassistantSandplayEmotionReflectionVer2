@@ -178,7 +178,7 @@ export function ObjectBar() {
   const activeItems = categories.find((c) => c.name === activeCategory)?.items ?? [];
 
   return (
-    <div className="relative flex flex-col gap-0">
+    <div className="relative flex flex-col gap-0" data-onboarding="objectbar">
       {/* Expanded items panel */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-out ${
