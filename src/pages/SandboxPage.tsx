@@ -1,5 +1,6 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import { SandboxCanvas3D, type PlacedObject } from "@/components/SandboxCanvas3D";
+import { SandboxOnboarding, isOnboardingCompleted } from "@/components/SandboxOnboarding";
 import { ObjectBar } from "@/components/ObjectBar";
 import { ChatPanel } from "@/components/ChatPanel";
 import { CanvasToolbar } from "@/components/CanvasToolbar";
