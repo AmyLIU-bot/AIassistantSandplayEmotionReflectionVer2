@@ -107,6 +107,7 @@ function Object3D({
   terrainState: TerrainState;
 }) {
   const meshRef = useRef<THREE.Group>(null);
+  const [hovered, setHovered] = useState(false);
   const config = getConfig(obj.type);
   const baseY = (config.height || 0.4) / 2;
 
