@@ -72,7 +72,7 @@ function fbm(x: number, y: number, octaves: number = 4): number {
   return val;
 }
 
-/** Generate a high-quality procedural sand color texture */
+/** Generate a zen garden sand texture with concentric ripple grooves */
 function createSandTexture(): THREE.CanvasTexture {
   const res = 1024;
   const canvas = document.createElement("canvas");
@@ -82,35 +82,37 @@ function createSandTexture(): THREE.CanvasTexture {
   const imageData = ctx.createImageData(res, res);
   const data = imageData.data;
 
-  // Warm sand palette base
-  const baseR = 214, baseG = 189, baseB = 152;
+  // Warm beige-grey sand base (zen garden)
+  const baseR = 194, baseG = 182, baseB = 162;
 
   for (let py = 0; py < res; py++) {
     for (let px = 0; px < res; px++) {
       const idx = (py * res + px) * 4;
       const nx = px / res, ny = py / res;
 
-      // Large organic drifts
-      const drift = fbm(nx * 4.3 + 0.7, ny * 4.3 + 1.3, 4) * 0.10;
-      // Medium clumps
-      const clump = fbm(nx * 12.1 + 5.0, ny * 11.7 + 3.0, 3) * 0.07;
-      // Fine grain — individual sand particles (much more prominent)
-      const fine = (hash(px * 3.17, py * 3.91) - 0.5) * 0.09;
-      // Extra fine grain layer for dense sand feel
-      const grain2 = (hash(px * 13.7 + 1.1, py * 11.3 + 2.7) - 0.5) * 0.06;
-      // Sparkle — bright specks like quartz grains catching light
-      const sparkleVal = hash(px * 61.3, py * 59.7);
-      const sparkle = sparkleVal > 0.93 ? 0.12 : sparkleVal > 0.88 ? 0.05 : (sparkleVal < 0.07 ? -0.04 : 0);
-      // Subtle warm/cool shift
-      const warmShift = smoothNoise(nx * 8 + 2.5, ny * 8 + 1.5) * 0.04;
-      // Wind ripple lines — faint directional texture
-      const ripple = Math.sin(nx * 55 + fbm(nx * 2.5, ny * 2.5, 2) * 5) * 0.02;
+      // Concentric ripple grooves from center
+      const cx = 0.5, cy = 0.5;
+      const dist = Math.sqrt((nx - cx) ** 2 + (ny - cy) ** 2);
+      const ripple = Math.sin(dist * 120 + fbm(nx * 2, ny * 2, 2) * 2.5) * 0.09;
 
-      const total = drift + clump + fine + grain2 + sparkle + ripple;
+      // Secondary ripple center for organic feel
+      const dist2 = Math.sqrt((nx - 0.28) ** 2 + (ny - 0.68) ** 2);
+      const ripple2 = Math.sin(dist2 * 95 + fbm(nx * 1.8 + 3, ny * 1.8 + 3, 2) * 2) * 0.045;
 
-      data[idx]     = Math.max(0, Math.min(255, baseR + (total + warmShift * 0.5) * 255));
-      data[idx + 1] = Math.max(0, Math.min(255, baseG + (total) * 220));
-      data[idx + 2] = Math.max(0, Math.min(255, baseB + (total - warmShift * 0.3) * 190));
+      // Fine sand grain
+      const grain = (hash(px * 5.3, py * 5.7) - 0.5) * 0.035;
+      const micro = (hash(px * 19.1, py * 17.3) - 0.5) * 0.02;
+      // Subtle large-scale drift
+      const drift = fbm(nx * 3.5 + 0.5, ny * 3.5 + 1.0, 3) * 0.035;
+      // Warm/cool color shift
+      const warmShift = smoothNoise(nx * 6, ny * 6) * 0.018;
+
+      const total = ripple + ripple2 + grain + micro + drift;
+
+      // Grooves are darker, ridges are lighter — like raked sand
+      data[idx]     = Math.max(0, Math.min(255, baseR + (total + warmShift * 0.3) * 300));
+      data[idx + 1] = Math.max(0, Math.min(255, baseG + (total) * 280));
+      data[idx + 2] = Math.max(0, Math.min(255, baseB + (total - warmShift * 0.2) * 260));
       data[idx + 3] = 255;
     }
   }
@@ -120,13 +122,13 @@ function createSandTexture(): THREE.CanvasTexture {
   const texture = new THREE.CanvasTexture(canvas);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(3, 3);
+  texture.repeat.set(2, 2);
   texture.anisotropy = 8;
   texture.needsUpdate = true;
   return texture;
 }
 
-/** Generate a bump/normal-like texture for sand grain depth */
+/** Generate bump map with zen ripple grooves for 3D depth */
 function createSandBumpMap(): THREE.CanvasTexture {
   const res = 1024;
   const canvas = document.createElement("canvas");
@@ -141,18 +143,20 @@ function createSandBumpMap(): THREE.CanvasTexture {
       const idx = (py * res + px) * 4;
       const nx = px / res, ny = py / res;
 
-      // Coarse sand clumps
-      const coarse = fbm(nx * 10, ny * 10, 3) * 0.35;
-      // Medium granularity
-      const medium = smoothNoise(nx * 30, ny * 30) * 0.2;
-      // Individual grain bumps — high frequency
-      const fine = hash(px * 3.3, py * 3.7) * 0.25;
-      // Extra fine grain layer
-      const micro = hash(px * 17.1, py * 13.9) * 0.1;
-      // Subtle wind ripple lines
-      const ripple = Math.sin(nx * 50 + fbm(nx * 3, ny * 3, 2) * 6) * 0.1;
+      // Concentric grooves matching the color texture
+      const cx = 0.5, cy = 0.5;
+      const dist = Math.sqrt((nx - cx) ** 2 + (ny - cy) ** 2);
+      const groove = Math.sin(dist * 120 + fbm(nx * 2, ny * 2, 2) * 2.5) * 0.4;
 
-      const val = Math.max(0, Math.min(1, 0.5 + coarse + medium + fine + micro + ripple - 0.6));
+      // Secondary grooves
+      const dist2 = Math.sqrt((nx - 0.28) ** 2 + (ny - 0.68) ** 2);
+      const groove2 = Math.sin(dist2 * 95 + fbm(nx * 1.8 + 3, ny * 1.8 + 3, 2) * 2) * 0.2;
+
+      // Fine sand grain texture
+      const grain = hash(px * 5.3, py * 5.7) * 0.12;
+      const micro = hash(px * 23.1, py * 19.7) * 0.06;
+
+      const val = Math.max(0, Math.min(1, 0.5 + groove + groove2 + grain + micro - 0.35));
       const byte = Math.floor(val * 255);
 
       data[idx] = byte;
@@ -167,7 +171,7 @@ function createSandBumpMap(): THREE.CanvasTexture {
   const texture = new THREE.CanvasTexture(canvas);
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(3, 3);
+  texture.repeat.set(2, 2);
   texture.needsUpdate = true;
   return texture;
 }
@@ -187,11 +191,11 @@ export function TerrainMesh({
   const sandTexture = useMemo(() => createSandTexture(), []);
   const bumpMap = useMemo(() => createSandBumpMap(), []);
 
-  // Height color palette — soft and warm
-  const lowColor = useMemo(() => new THREE.Color("#b09268"), []);
-  const midColor = useMemo(() => new THREE.Color("#d0b490"), []);
-  const highColor = useMemo(() => new THREE.Color("#e6d4b0"), []);
-  const depthColor = useMemo(() => new THREE.Color("#8a7050"), []);
+  // Height color palette — zen sand tones
+  const lowColor = useMemo(() => new THREE.Color("#a89070"), []);
+  const midColor = useMemo(() => new THREE.Color("#c4b496"), []);
+  const highColor = useMemo(() => new THREE.Color("#d8ccb0"), []);
+  const depthColor = useMemo(() => new THREE.Color("#8a7858"), []);
 
   useEffect(() => {
     if (!meshRef.current) return;
@@ -206,7 +210,6 @@ export function TerrainMesh({
     for (let i = 0; i < pos.count; i++) {
       const worldX = pos.getX(i);
       const worldZ = -pos.getY(i);
-      // Add micro-noise to the terrain for organic feel
       const microBump = (fbm(worldX * 3, worldZ * 3, 2) - 0.5) * 0.04;
       const h = getTerrainHeight(worldX, worldZ, terrainState) + microBump;
       heights.push(h);
@@ -231,8 +234,8 @@ export function TerrainMesh({
       }
 
       // Organic per-vertex variation
-      const grain = (fbm(worldX * 2.5 + 10, worldZ * 2.5 + 10, 2) - 0.5) * 0.05;
-      const warmth = smoothNoise(worldX * 1.5, worldZ * 1.5) * 0.02;
+      const grain = (fbm(worldX * 2.5 + 10, worldZ * 2.5 + 10, 2) - 0.5) * 0.04;
+      const warmth = smoothNoise(worldX * 1.5, worldZ * 1.5) * 0.015;
       tempColor.r = Math.max(0, Math.min(1, tempColor.r + grain + warmth));
       tempColor.g = Math.max(0, Math.min(1, tempColor.g + grain));
       tempColor.b = Math.max(0, Math.min(1, tempColor.b + grain - warmth * 0.5));
@@ -262,9 +265,9 @@ export function TerrainMesh({
       <meshStandardMaterial
         map={sandTexture}
         bumpMap={bumpMap}
-        bumpScale={0.25}
+        bumpScale={0.3}
         vertexColors
-        roughness={0.95}
+        roughness={0.96}
         metalness={0}
       />
     </mesh>
@@ -279,12 +282,10 @@ export function TerrainPreview({ state, size = 32 }: { state: TerrainState; size
     for (let i = 0; i <= steps; i++) {
       const x = (i / steps) * size;
       const worldX = (i / steps) * 8 - 4;
-      // Sample along z=0 for the profile
       const h = getTerrainHeight(worldX, 0, state);
       const y = size * 0.65 - h * size * 0.5;
       pts.push(`${x},${y}`);
     }
-    // Close the path at bottom
     pts.push(`${size},${size * 0.85}`);
     pts.push(`0,${size * 0.85}`);
     return pts.join(" ");
@@ -292,7 +293,7 @@ export function TerrainPreview({ state, size = 32 }: { state: TerrainState; size
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} className="flex-shrink-0">
-      <polygon points={points} fill="#d4b896" stroke="#b89a70" strokeWidth={0.8} />
+      <polygon points={points} fill="#c4b496" stroke="#a89070" strokeWidth={0.8} />
     </svg>
   );
 }
