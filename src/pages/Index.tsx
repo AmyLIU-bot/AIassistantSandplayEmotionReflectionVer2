@@ -118,7 +118,7 @@ const Index = () => {
             <div className="animate-fade-in-up animation-delay-200 flex flex-col items-center justify-center lg:items-start gap-5">
               <div className="flex items-center gap-4">
                 <h2
-                  className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-emerald-600 to-teal-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite]"
+                  className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-emerald-500 to-teal-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite] drop-shadow-lg"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Get Started
@@ -131,7 +131,7 @@ const Index = () => {
                   <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
-              <p className="text-sm font-medium max-w-[220px] text-center lg:text-left text-foreground/70 drop-shadow-sm">
+              <p className="text-base font-semibold max-w-[250px] text-center lg:text-left bg-gradient-to-r from-foreground/80 to-primary/90 bg-clip-text text-transparent drop-shadow-md">
                 Begin your emotional journey
               </p>
             </div>
