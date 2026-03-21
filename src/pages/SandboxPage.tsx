@@ -3,7 +3,7 @@ import { SandboxCanvas3D, type PlacedObject } from "@/components/SandboxCanvas3D
 import { ObjectBar } from "@/components/ObjectBar";
 import { ChatPanel } from "@/components/ChatPanel";
 import { CanvasToolbar } from "@/components/CanvasToolbar";
-import { SandboxSidebar } from "@/components/SandboxSidebar";
+import AppSidebar from "@/components/AppSidebar";
 
 const reflections = [
   "I notice you've placed the person near the tree — perhaps there's a part of you seeking grounding and connection with nature right now. What does that space feel like?",
@@ -88,29 +88,32 @@ export default function SandboxPage() {
 
   return (
     <div className="flex h-screen w-full overflow-hidden">
-      <SandboxSidebar />
+      {/* Shared app sidebar — fixed position, won't affect sandbox layout */}
+      <AppSidebar />
 
-      {/* Center */}
-      <main className="flex-1 flex flex-col min-w-0 min-h-0 p-3 gap-3 bg-secondary/30">
-        <SandboxCanvas3D
-          objects={objects}
-          onUpdateObject={handleUpdateObject}
-          onRemoveObject={handleRemoveObject}
-          onDropNew={handleDropNew}
-        />
-        <CanvasToolbar
-          onClear={handleClear}
-          onFinish={handleFinish}
-          onUndo={handleUndo}
-          onRedo={handleRedo}
-          canUndo={historyIndexRef.current > 0}
-          canRedo={historyIndexRef.current < historyRef.current.length - 1}
-          hasObjects={objects.length > 0}
-        />
-        <ObjectBar />
-      </main>
+      {/* Main sandbox area — offset for the collapsed sidebar (68px) */}
+      <div className="flex flex-1 h-full min-w-0" style={{ marginLeft: 80 }}>
+        <main className="flex-1 flex flex-col min-w-0 min-h-0 p-3 gap-3 bg-secondary/30">
+          <SandboxCanvas3D
+            objects={objects}
+            onUpdateObject={handleUpdateObject}
+            onRemoveObject={handleRemoveObject}
+            onDropNew={handleDropNew}
+          />
+          <CanvasToolbar
+            onClear={handleClear}
+            onFinish={handleFinish}
+            onUndo={handleUndo}
+            onRedo={handleRedo}
+            canUndo={historyIndexRef.current > 0}
+            canRedo={historyIndexRef.current < historyRef.current.length - 1}
+            hasObjects={objects.length > 0}
+          />
+          <ObjectBar />
+        </main>
 
-      <ChatPanel onReflect={handleReflect} reflectionText={reflectionText} />
+        <ChatPanel onReflect={handleReflect} reflectionText={reflectionText} />
+      </div>
     </div>
   );
 }
