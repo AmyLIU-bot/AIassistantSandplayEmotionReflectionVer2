@@ -22,9 +22,8 @@ const HomePage = () => {
           <p className="text-sm text-muted-foreground mt-1">Take a breath. You're doing great today.</p>
         </motion.div>
 
-        <motion.div variants={item} className="grid md:grid-cols-2 gap-4">
+        <motion.div variants={item}>
           <EmotionalStatus currentMood={mood} onMoodChange={setMood} />
-          <ProfileSection name={name} onNameChange={setName} />
         </motion.div>
 
         <motion.div variants={item}>
