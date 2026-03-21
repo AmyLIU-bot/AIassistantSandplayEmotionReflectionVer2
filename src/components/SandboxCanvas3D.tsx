@@ -21,6 +21,7 @@ interface SandboxCanvas3DProps {
   onUpdateObject: (id: string, updates: Partial<PlacedObject>) => void;
   onRemoveObject: (id: string) => void;
   onDropNew: (type: string, image: string, x: number, y: number) => void;
+  onTerrainChanged?: () => void;
 }
 
 // Map object types to 3D shapes and colors
@@ -1489,7 +1490,7 @@ function SceneContent({
 }
 
 /* ───── Main Canvas Component ───── */
-export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDropNew }: SandboxCanvas3DProps) {
+export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDropNew, onTerrainChanged }: SandboxCanvas3DProps) {
   const [selected, setSelected] = useState<string | null>(null);
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const [mode, setMode] = useState<"camera" | "object">("object");
@@ -1584,7 +1585,7 @@ export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDro
             {terrainOptions.map((opt) => (
               <button
                 key={opt.id}
-                onClick={() => { setTerrainState(opt.id); setShowTerrainPicker(false); }}
+                onClick={() => { setTerrainState(opt.id); setShowTerrainPicker(false); onTerrainChanged?.(); }}
                 className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-md text-left transition-colors active:scale-[0.98] ${
                   terrainState === opt.id
                     ? "bg-primary/10 text-foreground"

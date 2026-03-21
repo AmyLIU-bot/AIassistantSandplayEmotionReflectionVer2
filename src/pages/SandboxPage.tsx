@@ -38,6 +38,7 @@ export default function SandboxPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [finishReflection, setFinishReflection] = useState("");
   const [showOnboarding, setShowOnboarding] = useState(!isViewMode);
+  const [onboardingSignal, setOnboardingSignal] = useState<string | null>(null);
   const historyRef = useRef<PlacedObject[][]>([[]]);
   const historyIndexRef = useRef(0);
 
@@ -63,7 +64,8 @@ export default function SandboxPage() {
       pushHistory(next);
       return next;
     });
-  }, [isViewMode]);
+    if (showOnboarding) setOnboardingSignal("object-placed");
+  }, [isViewMode, showOnboarding]);
 
   const handleUpdateObject = useCallback((id: string, updates: Partial<PlacedObject>) => {
     if (isViewMode) return;
@@ -72,7 +74,8 @@ export default function SandboxPage() {
       pushHistory(next);
       return next;
     });
-  }, [isViewMode]);
+    if (showOnboarding) setOnboardingSignal("object-moved");
+  }, [isViewMode, showOnboarding]);
 
   const handleRemoveObject = useCallback((id: string) => {
     if (isViewMode) return;
@@ -178,6 +181,7 @@ export default function SandboxPage() {
             onUpdateObject={handleUpdateObject}
             onRemoveObject={handleRemoveObject}
             onDropNew={handleDropNew}
+            onTerrainChanged={() => { if (showOnboarding) setOnboardingSignal("terrain-changed"); }}
           />
 
           {!isViewMode && (
@@ -211,7 +215,10 @@ export default function SandboxPage() {
       />
 
       {showOnboarding && !isViewMode && (
-        <SandboxOnboarding onComplete={() => setShowOnboarding(false)} />
+        <SandboxOnboarding
+          onComplete={() => setShowOnboarding(false)}
+          signal={onboardingSignal}
+        />
       )}
     </div>
   );
