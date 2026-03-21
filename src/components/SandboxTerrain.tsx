@@ -199,10 +199,10 @@ export function TerrainMesh({
   const bumpMap = useMemo(() => createSandBumpMap(), []);
 
   // Height color palette — soft and warm
-  const lowColor = useMemo(() => new THREE.Color("#b09268"), []);
-  const midColor = useMemo(() => new THREE.Color("#d0b490"), []);
-  const highColor = useMemo(() => new THREE.Color("#e6d4b0"), []);
-  const depthColor = useMemo(() => new THREE.Color("#8a7050"), []);
+  const lowColor = useMemo(() => new THREE.Color("#c8ad82"), []);
+  const midColor = useMemo(() => new THREE.Color("#e0cfa8"), []);
+  const highColor = useMemo(() => new THREE.Color("#efe0c4"), []);
+  const depthColor = useMemo(() => new THREE.Color("#a08860"), []);
 
   useEffect(() => {
     if (!meshRef.current) return;
