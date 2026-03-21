@@ -118,8 +118,8 @@ const Index = () => {
             <div className="animate-fade-in-up animation-delay-200 flex flex-col items-center justify-center lg:items-start gap-5">
               <div className="flex items-center gap-4">
                 <h2
-                  className="text-3xl md:text-4xl font-bold tracking-tight"
-                  style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 15% 12%)' }}
+                  className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-emerald-600 to-teal-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite]"
+                  style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Get Started
                 </h2>
