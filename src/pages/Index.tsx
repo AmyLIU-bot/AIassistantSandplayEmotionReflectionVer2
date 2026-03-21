@@ -74,9 +74,9 @@ const Index = () => {
       </section>
 
       {/* ===== CONTENT SECTION ===== */}
-      <section ref={contentRef} className="relative z-10 h-screen flex flex-col">
+      <section ref={contentRef} className="relative z-10 h-screen max-h-screen flex flex-col overflow-hidden">
         {/* Logo */}
-        <div className="px-6 md:px-10 pt-4 shrink-0">
+        <div className="px-5 md:px-8 pt-3 shrink-0">
           <div className="animate-fade-in-up flex items-center gap-2.5">
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center backdrop-blur-sm">
               <Leaf className="w-5 h-5 text-primary" />
@@ -88,21 +88,19 @@ const Index = () => {
         </div>
 
         {/* Content grid */}
-        <div className="flex-1 min-h-0 px-6 md:px-10 py-4 flex items-stretch">
-          <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-8 h-full">
+        <div className="flex-1 min-h-0 px-5 md:px-8 pt-3 pb-5 lg:pb-6 flex items-stretch overflow-hidden">
+          <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] gap-4 lg:gap-6 h-full min-h-0 items-stretch">
             {/* Left side */}
-            <div className="relative flex flex-col justify-between h-full py-4">
-              <div className="absolute -inset-4 -z-10 rounded-3xl backdrop-blur-sm" style={{ background: 'linear-gradient(135deg, hsl(140 20% 97% / 0.45), hsl(140 20% 97% / 0.25))' }} />
+            <div className="relative flex flex-col h-full min-h-0 overflow-hidden rounded-[2rem] px-5 md:px-6 py-5 md:py-6">
+              <div className="absolute inset-0 -z-10 rounded-[2rem] backdrop-blur-sm" style={{ background: 'linear-gradient(135deg, hsl(140 20% 97% / 0.45), hsl(140 20% 97% / 0.25))' }} />
 
-              <div className="space-y-5">
+              <div className="space-y-4 shrink-0">
                 <h2 className="animate-fade-in-up animation-delay-100 text-4xl md:text-5xl font-bold leading-tight tracking-tight" style={{ color: 'hsl(150 15% 12%)' }}>
                   What is a Sandbox?
                 </h2>
 
                 <p className="animate-fade-in-up animation-delay-200 text-base md:text-lg leading-relaxed max-w-xl" style={{ color: 'hsl(150 8% 25%)' }}>
-                  A sandbox is a creative space where users can express their
-                  emotions by placing objects and building a scene instead of
-                  using words.
+                  A sandbox is a creative space where users can express their emotions by placing objects and building a scene instead of using words.
                 </p>
 
                 <p className="animate-fade-in-up animation-delay-300 text-base md:text-lg leading-relaxed max-w-xl" style={{ color: 'hsl(150 8% 25%)' }}>
@@ -117,7 +115,7 @@ const Index = () => {
               </div>
 
               {/* Demo video placeholder */}
-              <div className="animate-fade-in-up animation-delay-400 rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm overflow-hidden flex items-center justify-center flex-1 mt-5 min-h-0">
+              <div className="animate-fade-in-up animation-delay-400 mt-4 md:mt-5 flex-1 min-h-[180px] lg:min-h-0 rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm overflow-hidden flex items-center justify-center">
                 <div className="text-center space-y-2 text-muted-foreground">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                     <svg className="w-5 h-5 text-primary ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
@@ -128,27 +126,27 @@ const Index = () => {
             </div>
 
             {/* Right side - Login card */}
-            <div className="animate-fade-in-up animation-delay-200 flex items-stretch h-full py-4">
-              <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95 transition-shadow duration-300 hover:shadow-card-hover w-full flex flex-col">
-                <CardHeader className="pb-4 pt-8">
+            <div className="animate-fade-in-up animation-delay-200 flex h-full min-h-0 items-stretch">
+              <Card className="shadow-card border-0 backdrop-blur-sm bg-card/95 transition-shadow duration-300 hover:shadow-card-hover w-full h-full min-h-0 flex flex-col overflow-y-auto">
+                <CardHeader className="pb-3 pt-6 md:pt-7 px-5 md:px-6 shrink-0">
                   <CardTitle className="text-2xl font-bold text-foreground">Login</CardTitle>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col">
-                  <form onSubmit={handleLogin} className="flex-1 flex flex-col justify-between gap-6">
-                    <div className="space-y-5">
+                <CardContent className="flex-1 flex flex-col px-5 md:px-6 pb-5 md:pb-6 min-h-0">
+                  <form onSubmit={handleLogin} className="flex-1 flex flex-col justify-between gap-5 min-h-0">
+                    <div className="space-y-4 shrink-0">
                       <div className="space-y-2">
                         <Label htmlFor="email" className="text-sm font-medium text-foreground">Username or Email</Label>
-                        <Input id="email" type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="h-11 bg-background/60 backdrop-blur-sm transition-all duration-200" />
+                        <Input id="email" type="text" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} className="h-10 md:h-11 bg-background/60 backdrop-blur-sm transition-all duration-200" />
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="password" className="text-sm font-medium text-foreground">Password</Label>
-                        <Input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="h-11 bg-background/60 backdrop-blur-sm transition-all duration-200" />
+                        <Input id="password" type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} className="h-10 md:h-11 bg-background/60 backdrop-blur-sm transition-all duration-200" />
                       </div>
                     </div>
 
-                    <div className="space-y-4">
-                      <Button type="submit" className="w-full h-11 text-base font-semibold rounded-lg">Login</Button>
+                    <div className="space-y-3 shrink-0">
+                      <Button type="submit" className="w-full h-10 md:h-11 text-base font-semibold rounded-lg">Login</Button>
 
                       <div className="relative flex items-center py-1">
                         <div className="flex-1 border-t border-border" />
@@ -156,7 +154,7 @@ const Index = () => {
                         <div className="flex-1 border-t border-border" />
                       </div>
 
-                      <Button type="button" variant="google" className="w-full h-11 text-base font-medium rounded-lg gap-3" onClick={() => navigate("/home")}>
+                      <Button type="button" variant="google" className="w-full h-10 md:h-11 text-base font-medium rounded-lg gap-3" onClick={() => navigate("/home")}>
                         <svg className="w-5 h-5" viewBox="0 0 24 24">
                           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
                           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
@@ -166,7 +164,7 @@ const Index = () => {
                         Continue with Google
                       </Button>
 
-                      <p className="text-center text-sm text-muted-foreground pt-2">
+                      <p className="text-center text-sm text-muted-foreground pt-1">
                         Don't have an account?{" "}
                         <button type="button" className="text-primary font-semibold hover:underline underline-offset-2 transition-all duration-200">Sign up</button>
                       </p>
