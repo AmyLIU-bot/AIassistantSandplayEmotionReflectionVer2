@@ -1606,6 +1606,7 @@ export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDro
       <div className="absolute top-2 right-2 flex items-start gap-1.5 z-10">
         {/* Mode toggle */}
         <button
+          data-onboarding="mode-toggle"
           onClick={() => setMode((m) => (m === "camera" ? "object" : "camera"))}
           className={`flex items-center gap-1.5 px-2 py-1 rounded-md border shadow-sm backdrop-blur-sm transition-all active:scale-95 text-[11px] font-medium select-none ${
             mode === "camera"
@@ -1619,7 +1620,7 @@ export function SandboxCanvas3D({ objects, onUpdateObject, onRemoveObject, onDro
         </button>
 
         {/* Camera buttons — compact single row */}
-        <div className="bg-card/90 backdrop-blur-sm rounded-md border border-border/50 shadow-sm p-0.5 flex items-center gap-px">
+        <div data-onboarding="camera-controls" className="bg-card/90 backdrop-blur-sm rounded-md border border-border/50 shadow-sm p-0.5 flex items-center gap-px">
           <button onClick={() => controlsRef.current?.dollyOut(1.3)} className={btnClass} title="Zoom in"><ZoomIn size={12} /></button>
           <button onClick={() => controlsRef.current?.dollyIn(1.3)} className={btnClass} title="Zoom out"><ZoomOut size={12} /></button>
           <div className="w-px h-4 bg-border/40 mx-px" />
