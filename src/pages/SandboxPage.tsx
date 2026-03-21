@@ -150,6 +150,10 @@ export default function SandboxPage() {
         onClose={() => setModalOpen(false)}
         onSave={handleSaveReflection}
       />
+
+      {showOnboarding && (
+        <SandboxOnboarding onComplete={() => setShowOnboarding(false)} />
+      )}
     </div>
   );
 }
