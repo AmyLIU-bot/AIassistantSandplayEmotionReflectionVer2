@@ -149,18 +149,21 @@ function createSandBumpMap(): THREE.CanvasTexture {
       const idx = (py * res + px) * 4;
       const nx = px / res, ny = py / res;
 
-      // Coarse sand clumps
-      const coarse = fbm(nx * 10, ny * 10, 3) * 0.35;
-      // Medium granularity
-      const medium = smoothNoise(nx * 30, ny * 30) * 0.2;
-      // Individual grain bumps — high frequency
-      const fine = hash(px * 3.3, py * 3.7) * 0.25;
-      // Extra fine grain layer
-      const micro = hash(px * 17.1, py * 13.9) * 0.1;
-      // Subtle wind ripple lines
-      const ripple = Math.sin(nx * 50 + fbm(nx * 3, ny * 3, 2) * 6) * 0.1;
+      // Flowing ripple bumps — dominant surface feature
+      const rippleAngle = 0.3;
+      const rippleCoord = nx * Math.cos(rippleAngle) + ny * Math.sin(rippleAngle);
+      const rippleWarp = fbm(nx * 3.5, ny * 3.5, 3) * 0.15;
+      const rippleBump = Math.sin((rippleCoord + rippleWarp) * 28) * 0.3;
+      const rippleBump2 = Math.sin((rippleCoord * 1.7 + rippleWarp * 0.8 + 0.5) * 42) * 0.12;
 
-      const val = Math.max(0, Math.min(1, 0.5 + coarse + medium + fine + micro + ripple - 0.6));
+      // Coarse sand clumps
+      const coarse = fbm(nx * 10, ny * 10, 3) * 0.15;
+      // Individual grain bumps
+      const fine = hash(px * 3.3, py * 3.7) * 0.15;
+      // Micro grain
+      const micro = hash(px * 17.1, py * 13.9) * 0.08;
+
+      const val = Math.max(0, Math.min(1, 0.5 + rippleBump + rippleBump2 + coarse + fine + micro - 0.45));
       const byte = Math.floor(val * 255);
 
       data[idx] = byte;
