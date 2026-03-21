@@ -131,7 +131,7 @@ const Index = () => {
                   <CardTitle className="text-2xl font-bold text-foreground">Login</CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col px-5 md:px-6 pb-5 md:pb-6">
-                  <form onSubmit={handleLogin} className="flex-1 flex flex-col justify-between gap-4">
+                  <form onSubmit={handleLogin} className="flex flex-col gap-6">
                     <div className="space-y-4">
                       <div className="space-y-1.5">
                         <Label htmlFor="email" className="text-sm font-medium text-foreground">Username or Email</Label>
