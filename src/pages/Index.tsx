@@ -118,7 +118,7 @@ const Index = () => {
             <div className="animate-fade-in-up animation-delay-200 flex flex-col items-center justify-center lg:items-start gap-5">
               <div className="flex items-center gap-4">
                 <h2
-                  className="text-2xl md:text-3xl font-bold tracking-tight"
+                  className="text-3xl md:text-4xl font-bold tracking-tight"
                   style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 15% 12%)' }}
                 >
                   Get Started
