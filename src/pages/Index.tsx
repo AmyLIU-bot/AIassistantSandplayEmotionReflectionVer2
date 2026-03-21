@@ -118,7 +118,7 @@ const Index = () => {
               </div>
 
               {/* Demo video placeholder */}
-              <div className="animate-fade-in-up animation-delay-400 rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm overflow-hidden flex items-center justify-center" style={{ aspectRatio: '16/9', maxHeight: '35vh' }}>
+              <div className="animate-fade-in-up animation-delay-400 rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm overflow-hidden flex items-center justify-center" style={{ aspectRatio: '16/9', maxHeight: '28vh' }}>
                 <div className="text-center space-y-2 text-muted-foreground">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                     <svg className="w-5 h-5 text-primary ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
