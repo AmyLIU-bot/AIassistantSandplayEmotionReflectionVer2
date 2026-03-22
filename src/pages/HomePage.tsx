@@ -13,7 +13,8 @@ const item = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transiti
 const HomePage = () => {
   const [name, setName] = useState("Alex");
   const [mood, setMood] = useState(1);
-
+  const [planHover, setPlanHover] = useState(false);
+  const navigate = useNavigate();
   return (
     <DashboardLayout>
       <motion.div variants={container} initial="hidden" animate="show" className="space-y-6">
