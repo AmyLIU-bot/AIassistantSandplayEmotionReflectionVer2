@@ -67,14 +67,14 @@ const Index = () => {
       </section>
 
       {/* ===== SECTION 1 — EMPATHY ===== */}
-      <section className="relative z-10 py-20 md:py-28 px-6">
-        <div className="max-w-[1400px] mx-auto space-y-12">
-          <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Does this sound familiar?</p>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+      <section className="relative z-10 py-24 md:py-36 px-6">
+        <div className="max-w-[1400px] mx-auto space-y-16">
+          <div className="text-center space-y-5 max-w-3xl mx-auto">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary drop-shadow-sm">Does this sound familiar?</p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground drop-shadow-sm" style={{ fontFamily: 'var(--font-display)' }}>
               You don't have to have a "problem" to explore what's inside.
             </h2>
-            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-lg md:text-xl text-muted-foreground drop-shadow-sm" style={{ fontFamily: 'var(--font-body)' }}>
               This is for anyone who's ever felt something they couldn't quite name.
             </p>
           </div>
