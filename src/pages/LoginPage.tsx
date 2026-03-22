@@ -49,7 +49,7 @@ const LoginPage = () => {
             <Leaf className="w-6 h-6 text-primary" />
           </div>
           <span className="text-2xl font-bold text-foreground drop-shadow-sm">
-            Sandbox
+            Sandbox AI
           </span>
         </div>
 
