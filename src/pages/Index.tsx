@@ -207,7 +207,7 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-2xl border-2 border-primary/30 bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
+              <div className="rounded-2xl border border-primary/35 bg-card/95 backdrop-blur-md p-10 space-y-6" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 10% 15%)' }}>This experience</h4>
                 <ul className="space-y-4">
                   {["Move freely, follow your instinct", "No right or wrong answers", "AI speaks to you, not at you"].map((text) => (
