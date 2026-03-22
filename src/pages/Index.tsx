@@ -73,7 +73,7 @@ const Index = () => {
               <Leaf className="w-5 h-5 text-primary" />
             </div>
             <span className="text-lg font-semibold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 15%)' }}>
-              Sandbox
+              Sandbox AI
             </span>
           </div>
         </div>

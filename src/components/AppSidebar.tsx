@@ -41,7 +41,7 @@ const AppSidebar = () => {
               exit={{ opacity: 0 }}
               className="text-sm font-bold text-foreground whitespace-nowrap"
             >
-              Serenity
+              Sandbox AI
             </motion.span>
           )}
         </AnimatePresence>
