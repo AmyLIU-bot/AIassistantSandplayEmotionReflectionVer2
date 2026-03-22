@@ -224,7 +224,7 @@ const Index = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </ScrollSection>
           </div>
         </div>
       </section>
