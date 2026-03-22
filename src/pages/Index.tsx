@@ -47,9 +47,9 @@ const Index = () => {
           src={bgNature}
           alt=""
           className="w-full h-full animate-[drift_35s_ease-in-out_infinite]"
-          style={{ objectFit: 'cover', objectPosition: '60% center', transform: 'scale(1.01)', filter: 'contrast(1.08) saturate(1.15)' }}
+          style={{ objectFit: 'cover', objectPosition: '60% center', transform: 'scale(1.01)', filter: 'contrast(1.12) saturate(1.3) brightness(0.92)' }}
         />
-        <div className="absolute inset-0 bg-background/30" />
+        <div className="absolute inset-0 bg-background/15" />
       </div>
 
       {/* Soft floating glow accents */}
