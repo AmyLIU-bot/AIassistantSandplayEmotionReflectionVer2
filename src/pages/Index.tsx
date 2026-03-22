@@ -157,7 +157,7 @@ const Index = () => {
                 </div>
                 <p className="text-base font-medium">Demo Video</p>
               </div>
-            </div>
+          </ScrollSection>
           </div>
         </div>
       </section>
