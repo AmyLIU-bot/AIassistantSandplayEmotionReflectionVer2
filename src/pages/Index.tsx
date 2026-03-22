@@ -79,11 +79,11 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 — accent border */}
-            <Card className="border-primary/30 bg-card/60 backdrop-blur-sm shadow-none">
-              <CardContent className="p-6 space-y-4">
-                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+            <Card className="border-primary/30 bg-card/90 backdrop-blur-md shadow-card">
+              <CardContent className="p-8 space-y-5">
+                <p className="text-base md:text-lg italic text-card-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
                   "I'm fine, I think. But lately something feels… off. I just can't put my finger on it."
                 </p>
                 <Badge variant="secondary" className="text-xs">Feeling off without knowing why</Badge>
@@ -91,9 +91,9 @@ const Index = () => {
             </Card>
 
             {/* Card 2 */}
-            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
-              <CardContent className="p-6 space-y-4">
-                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+            <Card className="bg-card/90 backdrop-blur-md shadow-card">
+              <CardContent className="p-8 space-y-5">
+                <p className="text-base md:text-lg italic text-card-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
                   "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
                 </p>
                 <Badge variant="secondary" className="text-xs">Going through a transition</Badge>
@@ -101,9 +101,9 @@ const Index = () => {
             </Card>
 
             {/* Card 3 */}
-            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
-              <CardContent className="p-6 space-y-4">
-                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+            <Card className="bg-card/90 backdrop-blur-md shadow-card">
+              <CardContent className="p-8 space-y-5">
+                <p className="text-base md:text-lg italic text-card-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
                   "I'm curious about myself. I want to understand my patterns and what drives me."
                 </p>
                 <Badge variant="secondary" className="text-xs">Self-discovery & curiosity</Badge>
