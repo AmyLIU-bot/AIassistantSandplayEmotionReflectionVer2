@@ -266,10 +266,10 @@ const Index = () => {
               </ul>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
-      {/* ===== SECTION 4 — HOW IT WORKS ===== */}
       <section className="relative z-10 py-28 md:py-40 px-6">
         <div className="max-w-[1400px] mx-auto space-y-20">
           <div className="space-y-6 max-w-4xl mx-auto">
