@@ -25,7 +25,7 @@ const Index = () => {
           className="w-full h-full animate-[drift_35s_ease-in-out_infinite]"
           style={{ objectFit: 'cover', objectPosition: '60% center', transform: 'scale(1.01)', filter: 'contrast(1.08) saturate(1.15)' }}
         />
-        <div className="absolute inset-0 bg-background/10" />
+        <div className="absolute inset-0 bg-background/30" />
       </div>
 
       {/* Soft floating glow accents */}
