@@ -1,6 +1,9 @@
 import { useRef } from "react";
-import { Leaf, ChevronDown, ArrowRight } from "lucide-react";
+import { Leaf, ChevronDown, ArrowRight, Check, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import bgNature from "@/assets/bg-nature.jpg";
 
 const Index = () => {
@@ -61,6 +64,66 @@ const Index = () => {
             <ChevronDown className="w-7 h-7 drop-shadow-md" />
           </div>
         </button>
+      </section>
+
+      {/* ===== SECTION 1 — EMPATHY ===== */}
+      <section className="relative z-10 py-20 md:py-28 px-6">
+        <div className="max-w-[1400px] mx-auto space-y-12">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Does this sound familiar?</p>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              You don't have to have a "problem" to explore what's inside.
+            </h2>
+            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>
+              This is for anyone who's ever felt something they couldn't quite name.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 — accent border */}
+            <Card className="border-primary/30 bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-4">
+                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  "I'm fine, I think. But lately something feels… off. I just can't put my finger on it."
+                </p>
+                <Badge variant="secondary" className="text-xs">Feeling off without knowing why</Badge>
+              </CardContent>
+            </Card>
+
+            {/* Card 2 */}
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-4">
+                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
+                </p>
+                <Badge variant="secondary" className="text-xs">Going through a transition</Badge>
+              </CardContent>
+            </Card>
+
+            {/* Card 3 */}
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-4">
+                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  "I'm curious about myself. I want to understand my patterns and what drives me."
+                </p>
+                <Badge variant="secondary" className="text-xs">Self-discovery & curiosity</Badge>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Bridge block */}
+          <div className="text-center space-y-4 max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>
+              Whatever brought you here — you don't need the right words.
+            </p>
+            <p className="text-xl font-semibold text-primary" style={{ fontFamily: 'var(--font-display)' }}>
+              The sandbox will find them for you.
+            </p>
+            <Button onClick={() => navigate("/login")} className="mt-2 gap-2">
+              Try it now <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
       </section>
 
       {/* ===== CONTENT SECTION ===== */}
@@ -135,6 +198,115 @@ const Index = () => {
                 Begin your emotional journey
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SECTION 3 — WHY PLACING OBJECTS ===== */}
+      <section className="relative z-10 py-20 md:py-28 px-6">
+        <div className="max-w-[1400px] mx-auto space-y-12">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Why placing objects?</p>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              Your hands are more honest than your words.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-3">
+                <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>The unconscious speaks</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  What you pick and where you place it isn't consciously decided — which is exactly why it reveals something real.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-3">
+                <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>No words required</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  Struggling to explain how you feel? You don't have to. The arrangement does the talking for you.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-3">
+                <h3 className="text-lg font-bold text-foreground" style={{ fontFamily: 'var(--font-display)' }}>AI reads it instantly</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  Placement patterns, object choices, use of space — our AI processes all of it and surfaces a meaningful insight in seconds.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Comparison block */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div className="rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-6 space-y-4">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Typical personality tests</h4>
+              <ul className="space-y-3">
+                {["Answer pre-set questions", "You guess the \"right\" answer", "Results feel flat and clinical"].map((text) => (
+                  <li key={text} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <X className="w-4 h-4 mt-0.5 text-destructive shrink-0" />
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border-2 border-primary/30 bg-card/60 backdrop-blur-sm p-6 space-y-4">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">This experience</h4>
+              <ul className="space-y-3">
+                {["Move freely, follow your instinct", "No right or wrong answers", "AI speaks to you, not at you"].map((text) => (
+                  <li key={text} className="flex items-start gap-2 text-sm text-foreground">
+                    <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SECTION 4 — HOW IT WORKS ===== */}
+      <section className="relative z-10 py-20 md:py-28 px-6">
+        <div className="max-w-[1400px] mx-auto space-y-12">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">How it works</p>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              Three steps. One honest reflection.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 items-start max-w-4xl mx-auto">
+            {[
+              {
+                step: "1",
+                title: "Choose your objects",
+                desc: "People, buildings, nature, animals — pick whatever draws you in. No overthinking. Just trust your gut.",
+              },
+              {
+                step: "2",
+                title: "Place them freely",
+                desc: "Put each object wherever feels right. Direction, distance, grouping — all up to you. Take your time.",
+              },
+              {
+                step: "3",
+                title: "Receive your insight",
+                desc: "Submit your scene and our AI will read the arrangement and deliver a personal reflection in seconds.",
+              },
+            ].map((s, i) => (
+              <div key={s.step} className="relative flex flex-col items-center text-center px-6 py-4">
+                {/* Connector line */}
+                {i < 2 && (
+                  <div className="hidden md:block absolute top-8 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-border" />
+                )}
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative z-10">
+                  <span className="text-lg font-bold text-primary" style={{ fontFamily: 'var(--font-display)' }}>{s.step}</span>
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2" style={{ fontFamily: 'var(--font-display)' }}>{s.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{s.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
