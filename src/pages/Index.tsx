@@ -282,7 +282,7 @@ const Index = () => {
       {/* ===== GET STARTED — Bottom CTA ===== */}
       <section className="relative z-10 pt-8 md:pt-12 pb-32 md:pb-44 px-6">
         <div className="max-w-[1400px] mx-auto">
-          <div className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 flex flex-col items-center justify-center gap-8 py-16 md:py-24">
+          <ScrollSection className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 flex flex-col items-center justify-center gap-8 py-16 md:py-24">
             <div className="flex items-center gap-6">
               <h2
                 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-emerald-500 to-teal-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_ease-in-out_infinite] drop-shadow-lg"
