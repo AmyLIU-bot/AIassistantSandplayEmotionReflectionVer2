@@ -67,7 +67,8 @@ const Index = () => {
 
       {/* ===== SECTION 1 — EMPATHY ===== */}
       <section className="relative z-10 py-28 md:py-40 px-6">
-        <div className="max-w-[1400px] mx-auto space-y-20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
           <div className="space-y-6 max-w-4xl mx-auto">
             <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>Does this sound familiar?</p>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
@@ -121,6 +122,7 @@ const Index = () => {
             <Button onClick={() => navigate("/login")} className="mt-3 gap-2 text-base px-6 py-3">
               Try it now <ArrowRight className="w-4 h-4" />
             </Button>
+          </div>
           </div>
         </div>
       </section>
@@ -203,7 +205,8 @@ const Index = () => {
 
       {/* ===== SECTION 3 — WHY PLACING OBJECTS ===== */}
       <section className="relative z-10 py-28 md:py-40 px-6">
-        <div className="max-w-[1400px] mx-auto space-y-20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
           <div className="space-y-6 max-w-4xl mx-auto">
             <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>Why placing objects?</p>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
@@ -263,12 +266,14 @@ const Index = () => {
               </ul>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
       {/* ===== SECTION 4 — HOW IT WORKS ===== */}
       <section className="relative z-10 py-28 md:py-40 px-6">
-        <div className="max-w-[1400px] mx-auto space-y-20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
           <div className="space-y-6 max-w-4xl mx-auto">
             <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>How it works</p>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
@@ -310,6 +315,7 @@ const Index = () => {
                 </Card>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </section>
