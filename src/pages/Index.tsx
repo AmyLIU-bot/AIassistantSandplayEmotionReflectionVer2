@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Leaf, ChevronDown, ArrowRight, Check, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +9,31 @@ import bgNature from "@/assets/bg-nature.jpg";
 
 const Index = () => {
   const contentRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [heroStyle, setHeroStyle] = useState({ opacity: 1, transform: 'scale(1) translateY(0px)' });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowH = window.innerHeight;
+      // Progress 0→1 over the first viewport height
+      const progress = Math.min(scrollY / (windowH * 0.7), 1);
+      // Scale gently from 1 → 1.12
+      const scale = 1 + progress * 0.12;
+      // Fade out from 1 → 0 (starts fading after 20% scroll)
+      const fadeProgress = Math.max(0, (progress - 0.15) / 0.6);
+      const opacity = Math.max(0, 1 - fadeProgress);
+      // Slight upward drift
+      const translateY = -progress * 30;
+      setHeroStyle({
+        opacity,
+        transform: `scale(${scale}) translateY(${translateY}px)`,
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToContent = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -34,7 +58,11 @@ const Index = () => {
 
       {/* ===== HERO SECTION ===== */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
-        <div className="text-center space-y-10 md:space-y-14 animate-fade-in-up">
+        <div
+          ref={heroRef}
+          className="text-center space-y-10 md:space-y-14 animate-fade-in-up will-change-transform"
+          style={{ ...heroStyle, transition: 'none' }}
+        >
           <div className="flex items-center justify-center gap-3 mb-2">
             <div className="w-14 h-14 rounded-2xl bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-md">
               <Leaf className="w-7 h-7 text-primary" />
