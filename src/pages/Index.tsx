@@ -34,8 +34,8 @@ const Index = () => {
 
       {/* ===== HERO SECTION ===== */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
-        <div className="text-center space-y-6 animate-fade-in-up">
-          <div className="flex items-center justify-center gap-3 mb-4">
+        <div className="text-center space-y-10 md:space-y-14 animate-fade-in-up">
+          <div className="flex items-center justify-center gap-3 mb-2">
             <div className="w-14 h-14 rounded-2xl bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-md">
               <Leaf className="w-7 h-7 text-primary" />
             </div>
@@ -45,12 +45,12 @@ const Index = () => {
           </div>
 
           <h1
-            className="text-5xl md:text-7xl font-bold leading-tight tracking-tight max-w-3xl text-primary-foreground drop-shadow-lg"
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold leading-[1.05] tracking-tighter max-w-5xl text-primary-foreground drop-shadow-lg"
             style={{ fontFamily: 'var(--font-display)' }}
           >
             Express your emotions without words.
           </h1>
-          <p className="text-xl md:text-2xl max-w-lg mx-auto text-primary-foreground/80 drop-shadow-md" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="text-lg md:text-xl max-w-md mx-auto text-primary-foreground/70 drop-shadow-md font-light" style={{ fontFamily: 'var(--font-body)' }}>
             Sandbox AI is here for you!
           </p>
         </div>
