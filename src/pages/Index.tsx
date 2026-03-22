@@ -90,7 +90,7 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-5">
                   <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
                     "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
