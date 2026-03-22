@@ -70,61 +70,57 @@ const Index = () => {
       <section className="relative z-10 py-28 md:py-40 px-6">
         <div className="max-w-[1400px] mx-auto">
           <ScrollSection className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>Does this sound familiar?</p>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
-              You don't have to have a "problem" to explore what's inside.
-            </h2>
-            <p className="text-xl md:text-2xl leading-relaxed max-w-3xl" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 20%)' }}>
-              This is for anyone who's ever felt something they couldn't quite name.
-            </p>
-          </div>
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>Does this sound familiar?</p>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
+                You don't have to have a "problem" to explore what's inside.
+              </h2>
+              <p className="text-xl md:text-2xl leading-relaxed max-w-3xl" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 20%)' }}>
+                This is for anyone who's ever felt something they couldn't quite name.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 — accent border */}
-            <Card className="border-primary/30 bg-card/95 backdrop-blur-md shadow-card">
-              <CardContent className="p-10 space-y-5">
-                <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
-                  "I'm fine, I think. But lately something feels… off. I just can't put my finger on it."
-                </p>
-                <Badge variant="secondary" className="text-sm">Feeling off without knowing why</Badge>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="border-primary/30 bg-card/95 backdrop-blur-md shadow-card">
+                <CardContent className="p-10 space-y-5">
+                  <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
+                    "I'm fine, I think. But lately something feels… off. I just can't put my finger on it."
+                  </p>
+                  <Badge variant="secondary" className="text-sm">Feeling off without knowing why</Badge>
+                </CardContent>
+              </Card>
 
-            {/* Card 2 */}
-            <Card className="bg-card/95 backdrop-blur-md shadow-card">
-              <CardContent className="p-10 space-y-5">
-                <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
-                  "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
-                </p>
-                <Badge variant="secondary" className="text-sm">Going through a transition</Badge>
-              </CardContent>
-            </Card>
+              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+                <CardContent className="p-10 space-y-5">
+                  <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
+                    "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
+                  </p>
+                  <Badge variant="secondary" className="text-sm">Going through a transition</Badge>
+                </CardContent>
+              </Card>
 
-            {/* Card 3 */}
-            <Card className="bg-card/95 backdrop-blur-md shadow-card">
-              <CardContent className="p-10 space-y-5">
-                <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
-                  "I'm curious about myself. I want to understand my patterns and what drives me."
-                </p>
-                <Badge variant="secondary" className="text-sm">Self-discovery & curiosity</Badge>
-              </CardContent>
-            </Card>
-          </div>
+              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+                <CardContent className="p-10 space-y-5">
+                  <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
+                    "I'm curious about myself. I want to understand my patterns and what drives me."
+                  </p>
+                  <Badge variant="secondary" className="text-sm">Self-discovery & curiosity</Badge>
+                </CardContent>
+              </Card>
+            </div>
 
-          {/* Bridge block */}
-          <div className="space-y-5 max-w-2xl mx-auto">
-            <p className="text-xl md:text-2xl leading-relaxed drop-shadow-sm" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 20%)' }}>
-              Whatever brought you here — you don't need the right words.
-            </p>
-            <p className="text-2xl md:text-3xl font-semibold drop-shadow-sm" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
-              The sandbox will find them for you.
-            </p>
-            <Button onClick={() => navigate("/login")} className="mt-3 gap-2 text-base px-6 py-3">
-              Try it now <ArrowRight className="w-4 h-4" />
-            </Button>
+            <div className="space-y-5 max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl leading-relaxed drop-shadow-sm" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 20%)' }}>
+                Whatever brought you here — you don't need the right words.
+              </p>
+              <p className="text-2xl md:text-3xl font-semibold drop-shadow-sm" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
+                The sandbox will find them for you.
+              </p>
+              <Button onClick={() => navigate("/login")} className="mt-3 gap-2 text-base px-6 py-3">
+                Try it now <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
           </ScrollSection>
-          </div>
         </div>
       </section>
 
@@ -149,7 +145,6 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Demo video placeholder — large area */}
             <div className="animate-fade-in-up animation-delay-400 w-full min-h-[400px] md:min-h-[500px] rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm flex items-center justify-center">
               <div className="text-center space-y-2 text-muted-foreground">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
@@ -157,8 +152,8 @@ const Index = () => {
                 </div>
                 <p className="text-base font-medium">Demo Video</p>
               </div>
+            </div>
           </ScrollSection>
-          </div>
         </div>
       </section>
 
@@ -166,66 +161,65 @@ const Index = () => {
       <section className="relative z-10 py-28 md:py-40 px-6">
         <div className="max-w-[1400px] mx-auto">
           <ScrollSection className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>Why placing objects?</p>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
-              Your hands are more honest than your words.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-card/95 backdrop-blur-md shadow-card">
-              <CardContent className="p-10 space-y-4">
-                <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>The unconscious speaks</h3>
-                <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
-                  What you pick and where you place it isn't consciously decided — which is exactly why it reveals something real.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/95 backdrop-blur-md shadow-card">
-              <CardContent className="p-10 space-y-4">
-                <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>No words required</h3>
-                <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
-                  Struggling to explain how you feel? You don't have to. The arrangement does the talking for you.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/95 backdrop-blur-md shadow-card">
-              <CardContent className="p-10 space-y-4">
-                <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>AI reads it instantly</h3>
-                <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
-                  Placement patterns, object choices, use of space — our AI processes all of it and surfaces a meaningful insight in seconds.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Comparison block */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
-              <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 8% 40%)' }}>Typical personality tests</h4>
-              <ul className="space-y-4">
-                {["Answer pre-set questions", "You guess the \"right\" answer", "Results feel flat and clinical"].map((text) => (
-                  <li key={text} className="flex items-start gap-3 text-lg" style={{ color: 'hsl(150 8% 30%)' }}>
-                    <X className="w-5 h-5 mt-1 text-destructive shrink-0" />
-                    <span>{text}</span>
-                  </li>
-                ))}
-              </ul>
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>Why placing objects?</p>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
+                Your hands are more honest than your words.
+              </h2>
             </div>
-            <div className="rounded-2xl border-2 border-primary/30 bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
-              <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 10% 15%)' }}>This experience</h4>
-              <ul className="space-y-4">
-                {["Move freely, follow your instinct", "No right or wrong answers", "AI speaks to you, not at you"].map((text) => (
-                  <li key={text} className="flex items-start gap-3 text-lg" style={{ color: 'hsl(150 10% 12%)' }}>
-                    <Check className="w-5 h-5 mt-1 text-primary shrink-0" />
-                    <span>{text}</span>
-                  </li>
-                ))}
-              </ul>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+                <CardContent className="p-10 space-y-4">
+                  <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>The unconscious speaks</h3>
+                  <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
+                    What you pick and where you place it isn't consciously decided — which is exactly why it reveals something real.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+                <CardContent className="p-10 space-y-4">
+                  <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>No words required</h3>
+                  <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
+                    Struggling to explain how you feel? You don't have to. The arrangement does the talking for you.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+                <CardContent className="p-10 space-y-4">
+                  <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>AI reads it instantly</h3>
+                  <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
+                    Placement patterns, object choices, use of space — our AI processes all of it and surfaces a meaningful insight in seconds.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
+                <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 8% 40%)' }}>Typical personality tests</h4>
+                <ul className="space-y-4">
+                  {["Answer pre-set questions", "You guess the \"right\" answer", "Results feel flat and clinical"].map((text) => (
+                    <li key={text} className="flex items-start gap-3 text-lg" style={{ color: 'hsl(150 8% 30%)' }}>
+                      <X className="w-5 h-5 mt-1 text-destructive shrink-0" />
+                      <span>{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl border-2 border-primary/30 bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
+                <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 10% 15%)' }}>This experience</h4>
+                <ul className="space-y-4">
+                  {["Move freely, follow your instinct", "No right or wrong answers", "AI speaks to you, not at you"].map((text) => (
+                    <li key={text} className="flex items-start gap-3 text-lg" style={{ color: 'hsl(150 10% 12%)' }}>
+                      <Check className="w-5 h-5 mt-1 text-primary shrink-0" />
+                      <span>{text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </ScrollSection>
-          </div>
         </div>
       </section>
 
@@ -233,49 +227,48 @@ const Index = () => {
       <section className="relative z-10 py-28 md:py-40 px-6">
         <div className="max-w-[1400px] mx-auto">
           <ScrollSection className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
-          <div className="space-y-6 max-w-4xl mx-auto">
-            <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>How it works</p>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
-              Three steps. One honest reflection.
-            </h2>
-          </div>
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>How it works</p>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
+                Three steps. One honest reflection.
+              </h2>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
-            {[
-              {
-                step: "1",
-                title: "Choose your objects",
-                desc: "People, buildings, nature, animals — pick whatever draws you in. No overthinking. Just trust your gut.",
-              },
-              {
-                step: "2",
-                title: "Place them freely",
-                desc: "Put each object wherever feels right. Direction, distance, grouping — all up to you. Take your time.",
-              },
-              {
-                step: "3",
-                title: "Receive your insight",
-                desc: "Submit your scene and our AI will read the arrangement and deliver a personal reflection in seconds.",
-              },
-            ].map((s, i) => (
-              <div key={s.step} className="relative flex flex-col items-center text-center">
-                {/* Connector line */}
-                {i < 2 && (
-                  <div className="hidden md:block absolute top-8 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-border" />
-                )}
-                <div className="w-16 h-16 rounded-full bg-card/95 border-2 border-primary/40 flex items-center justify-center mb-5 relative z-10 shadow-md">
-                  <span className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.step}</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
+              {[
+                {
+                  step: "1",
+                  title: "Choose your objects",
+                  desc: "People, buildings, nature, animals — pick whatever draws you in. No overthinking. Just trust your gut.",
+                },
+                {
+                  step: "2",
+                  title: "Place them freely",
+                  desc: "Put each object wherever feels right. Direction, distance, grouping — all up to you. Take your time.",
+                },
+                {
+                  step: "3",
+                  title: "Receive your insight",
+                  desc: "Submit your scene and our AI will read the arrangement and deliver a personal reflection in seconds.",
+                },
+              ].map((s, i) => (
+                <div key={s.step} className="relative flex flex-col items-center text-center">
+                  {i < 2 && (
+                    <div className="hidden md:block absolute top-8 left-[calc(50%+28px)] w-[calc(100%-56px)] h-px bg-border" />
+                  )}
+                  <div className="w-16 h-16 rounded-full bg-card/95 border-2 border-primary/40 flex items-center justify-center mb-5 relative z-10 shadow-md">
+                    <span className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.step}</span>
+                  </div>
+                  <Card className="bg-card/95 backdrop-blur-md shadow-card w-full">
+                    <CardContent className="p-10 space-y-4 text-center">
+                      <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.title}</h3>
+                      <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>{s.desc}</p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <Card className="bg-card/95 backdrop-blur-md shadow-card w-full">
-                  <CardContent className="p-10 space-y-4 text-center">
-                    <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.title}</h3>
-                    <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>{s.desc}</p>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+              ))}
+            </div>
           </ScrollSection>
-          </div>
         </div>
       </section>
 
