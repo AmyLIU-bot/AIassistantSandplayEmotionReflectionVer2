@@ -1489,6 +1489,16 @@ function SceneContent({
         minDistance={3}
         maxDistance={12}
         enablePan
+        panSpeed={1.2}
+        mouseButtons={{
+          LEFT: THREE.MOUSE.PAN,
+          MIDDLE: THREE.MOUSE.DOLLY,
+          RIGHT: THREE.MOUSE.ROTATE,
+        }}
+        touches={{
+          ONE: THREE.TOUCH.PAN,
+          TWO: THREE.TOUCH.DOLLY_ROTATE,
+        }}
       />
     </>
   );
