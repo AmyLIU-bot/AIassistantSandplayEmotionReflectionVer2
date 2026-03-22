@@ -302,7 +302,7 @@ const Index = () => {
             <p className="text-lg font-semibold max-w-[300px] text-center bg-gradient-to-r from-foreground/80 to-primary/90 bg-clip-text text-transparent drop-shadow-md">
               Begin your emotional journey
             </p>
-          </div>
+          </ScrollSection>
         </div>
       </section>
     </div>
