@@ -9,9 +9,7 @@ const accountSubItems = [
   { title: "Profile", path: "/profile", icon: User },
 ];
 
-const sandboxSubItems = [
-  { title: "Item Shop", path: "/sandbox/shop", icon: ShoppingBag },
-];
+const sandboxSubItems: { title: string; path: string; icon: typeof Home }[] = [];
 
 const mainItems = [
   { title: "Contact Us", path: "/contact", icon: Mail },
