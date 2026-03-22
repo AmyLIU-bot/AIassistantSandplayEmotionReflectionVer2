@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Profile from "./pages/Profile.tsx";
 import SandboxPage from "./pages/SandboxPage.tsx";
-import ItemShopPage from "./pages/ItemShopPage.tsx";
+
 import ContactPage from "./pages/ContactPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
