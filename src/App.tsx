@@ -10,6 +10,7 @@ import Profile from "./pages/Profile.tsx";
 import SandboxPage from "./pages/SandboxPage.tsx";
 
 import ContactPage from "./pages/ContactPage.tsx";
+import PaymentsPage from "./pages/PaymentsPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/sandbox" element={<SandboxPage />} />
           
+          <Route path="/payments" element={<PaymentsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
