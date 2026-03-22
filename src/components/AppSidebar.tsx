@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Home, BarChart3, User, Play, Mail, ChevronDown, Leaf, ShoppingBag } from "lucide-react";
+import { Home, BarChart3, User, Play, Mail, ChevronDown, Leaf } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const accountSubItems = [
