@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Home, BarChart3, User, Play, Mail, ChevronDown, Leaf } from "lucide-react";
+import { Home, BarChart3, User, Play, Mail, ChevronDown, Leaf, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const accountSubItems = [
@@ -9,14 +9,18 @@ const accountSubItems = [
   { title: "Profile", path: "/profile", icon: User },
 ];
 
+const sandboxSubItems = [
+  { title: "Item Shop", path: "/sandbox/shop", icon: ShoppingBag },
+];
+
 const mainItems = [
-  { title: "Sandbox", path: "/sandbox", icon: Play },
   { title: "Contact Us", path: "/contact", icon: Mail },
 ];
 
 const AppSidebar = () => {
   const [expanded, setExpanded] = useState(false);
   const [accountOpen, setAccountOpen] = useState(true);
+  const [sandboxOpen, setSandboxOpen] = useState(true);
   const location = useLocation();
 
   return (
@@ -106,8 +110,75 @@ const AppSidebar = () => {
           )}
         </AnimatePresence>
 
-        <div className="h-px bg-border/30 my-2" />
+        {/* Sandbox section with sub-items */}
+        <Link
+          to="/sandbox"
+          onClick={(e) => {
+            if (expanded) {
+              e.preventDefault();
+              setSandboxOpen(!sandboxOpen);
+            }
+          }}
+          className={`flex items-center gap-3 w-full px-3 py-2 rounded-xl text-sm transition-colors ${
+            location.pathname.startsWith('/sandbox') && !expanded
+              ? "bg-primary/10 text-primary font-medium"
+              : "text-muted-foreground hover:bg-accent/50"
+          }`}
+        >
+          <Play className="w-4 h-4 shrink-0" />
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="flex items-center justify-between flex-1 whitespace-nowrap"
+              >
+                <span className="font-medium">Sandbox</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${sandboxOpen ? 'rotate-180' : ''}`} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </Link>
 
+        <AnimatePresence>
+          {sandboxOpen && expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden pl-4 space-y-0.5"
+            >
+              <Link
+                to="/sandbox"
+                className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-colors ${
+                  location.pathname === '/sandbox'
+                    ? "bg-primary/10 text-primary font-medium"
+                    : "text-muted-foreground hover:bg-accent/50"
+                }`}
+              >
+                <Play className="w-4 h-4 shrink-0" />
+                <span className="whitespace-nowrap">Sandbox</span>
+              </Link>
+              {sandboxSubItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-colors ${
+                    location.pathname === item.path
+                      ? "bg-primary/10 text-primary font-medium"
+                      : "text-muted-foreground hover:bg-accent/50"
+                  }`}
+                >
+                  <item.icon className="w-4 h-4 shrink-0" />
+                  <span className="whitespace-nowrap">{item.title}</span>
+                </Link>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Other main items */}
         {mainItems.map((item) => (
           <Link
             key={item.path}

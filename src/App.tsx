@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Profile from "./pages/Profile.tsx";
 import SandboxPage from "./pages/SandboxPage.tsx";
+import ItemShopPage from "./pages/ItemShopPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sandbox" element={<SandboxPage />} />
+          <Route path="/sandbox/shop" element={<ItemShopPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
