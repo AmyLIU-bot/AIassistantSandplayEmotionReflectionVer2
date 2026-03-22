@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import DashboardLayout from "@/components/DashboardLayout";
 import EmotionalStatus from "@/components/EmotionalStatus";
 import RecentActivity from "@/components/RecentActivity";
 
-import { Sparkles } from "lucide-react";
+import { Sparkles, Crown } from "lucide-react";
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
 const item = { hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };
