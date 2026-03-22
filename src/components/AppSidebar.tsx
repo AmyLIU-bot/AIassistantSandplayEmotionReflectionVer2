@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Home, BarChart3, User, Play, Mail, ChevronDown, Leaf } from "lucide-react";
+import { Home, BarChart3, User, Play, Mail, ChevronDown, Leaf, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const accountSubItems = [
@@ -9,8 +9,11 @@ const accountSubItems = [
   { title: "Profile", path: "/profile", icon: User },
 ];
 
+const sandboxSubItems = [
+  { title: "Item Shop", path: "/sandbox/shop", icon: ShoppingBag },
+];
+
 const mainItems = [
-  { title: "Sandbox", path: "/sandbox", icon: Play },
   { title: "Contact Us", path: "/contact", icon: Mail },
 ];
 
