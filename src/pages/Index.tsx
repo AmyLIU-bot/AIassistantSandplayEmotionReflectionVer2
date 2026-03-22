@@ -259,7 +259,7 @@ const Index = () => {
                   <div className="w-16 h-16 rounded-full bg-card/95 border-2 border-primary/40 flex items-center justify-center mb-5 relative z-10 shadow-md">
                     <span className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.step}</span>
                   </div>
-                  <Card className="bg-card/95 backdrop-blur-md shadow-card w-full">
+                  <Card className="bg-card/95 backdrop-blur-md w-full" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                     <CardContent className="p-10 space-y-4 text-center">
                       <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.title}</h3>
                       <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>{s.desc}</p>
