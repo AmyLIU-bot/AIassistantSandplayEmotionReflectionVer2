@@ -9,7 +9,31 @@ import bgNature from "@/assets/bg-nature.jpg";
 
 const Index = () => {
   const contentRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [heroStyle, setHeroStyle] = useState({ opacity: 1, transform: 'scale(1) translateY(0px)' });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowH = window.innerHeight;
+      // Progress 0→1 over the first viewport height
+      const progress = Math.min(scrollY / (windowH * 0.7), 1);
+      // Scale gently from 1 → 1.12
+      const scale = 1 + progress * 0.12;
+      // Fade out from 1 → 0 (starts fading after 20% scroll)
+      const fadeProgress = Math.max(0, (progress - 0.15) / 0.6);
+      const opacity = Math.max(0, 1 - fadeProgress);
+      // Slight upward drift
+      const translateY = -progress * 30;
+      setHeroStyle({
+        opacity,
+        transform: `scale(${scale}) translateY(${translateY}px)`,
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToContent = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
