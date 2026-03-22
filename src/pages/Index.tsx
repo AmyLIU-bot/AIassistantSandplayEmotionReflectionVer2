@@ -81,7 +81,7 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="border-primary/30 bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="border-primary/30 bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-5">
                   <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
                     "I'm fine, I think. But lately something feels… off. I just can't put my finger on it."
@@ -90,7 +90,7 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-5">
                   <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
                     "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
@@ -99,7 +99,7 @@ const Index = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-5">
                   <p className="text-lg md:text-xl italic leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 10% 15%)' }}>
                     "I'm curious about myself. I want to understand my patterns and what drives me."
@@ -169,7 +169,7 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-4">
                   <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>The unconscious speaks</h3>
                   <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
@@ -177,7 +177,7 @@ const Index = () => {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-4">
                   <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>No words required</h3>
                   <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
@@ -185,7 +185,7 @@ const Index = () => {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="bg-card/95 backdrop-blur-md shadow-card">
+              <Card className="bg-card/95 backdrop-blur-md" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <CardContent className="p-10 space-y-4">
                   <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>AI reads it instantly</h3>
                   <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>
@@ -196,7 +196,7 @@ const Index = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
+              <div className="rounded-2xl border border-destructive/25 bg-card/95 backdrop-blur-md p-10 space-y-6" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 8% 40%)' }}>Typical personality tests</h4>
                 <ul className="space-y-4">
                   {["Answer pre-set questions", "You guess the \"right\" answer", "Results feel flat and clinical"].map((text) => (
@@ -207,7 +207,7 @@ const Index = () => {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-2xl border-2 border-primary/30 bg-card/95 backdrop-blur-md p-10 space-y-6 shadow-card">
+              <div className="rounded-2xl border border-primary/35 bg-card/95 backdrop-blur-md p-10 space-y-6" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                 <h4 className="text-sm font-semibold uppercase tracking-wider" style={{ color: 'hsl(150 10% 15%)' }}>This experience</h4>
                 <ul className="space-y-4">
                   {["Move freely, follow your instinct", "No right or wrong answers", "AI speaks to you, not at you"].map((text) => (
@@ -259,7 +259,7 @@ const Index = () => {
                   <div className="w-16 h-16 rounded-full bg-card/95 border-2 border-primary/40 flex items-center justify-center mb-5 relative z-10 shadow-md">
                     <span className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.step}</span>
                   </div>
-                  <Card className="bg-card/95 backdrop-blur-md shadow-card w-full">
+                  <Card className="bg-card/95 backdrop-blur-md w-full" style={{ boxShadow: '0 4px 20px -4px hsl(150 20% 40% / 0.10)' }}>
                     <CardContent className="p-10 space-y-4 text-center">
                       <h3 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>{s.title}</h3>
                       <p className="text-lg leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: 'hsl(150 8% 30%)' }}>{s.desc}</p>
