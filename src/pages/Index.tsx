@@ -232,7 +232,7 @@ const Index = () => {
       {/* ===== SECTION 4 — HOW IT WORKS ===== */}
       <section className="relative z-10 py-28 md:py-40 px-6">
         <div className="max-w-[1400px] mx-auto">
-          <div className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
+          <ScrollSection className="rounded-3xl bg-card/60 backdrop-blur-md border border-border/40 shadow-card p-8 md:p-14 space-y-20">
           <div className="space-y-6 max-w-4xl mx-auto">
             <p className="text-base font-semibold uppercase tracking-widest text-center drop-shadow-md" style={{ color: 'hsl(150 10% 15%)' }}>How it works</p>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight tracking-tight text-center drop-shadow-md" style={{ fontFamily: 'var(--font-display)', color: 'hsl(150 10% 12%)' }}>
