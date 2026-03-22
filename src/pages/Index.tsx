@@ -66,6 +66,66 @@ const Index = () => {
         </button>
       </section>
 
+      {/* ===== SECTION 1 — EMPATHY ===== */}
+      <section className="relative z-10 py-20 md:py-28 px-6">
+        <div className="max-w-[1400px] mx-auto space-y-12">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Does this sound familiar?</p>
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-foreground" style={{ fontFamily: 'var(--font-display)' }}>
+              You don't have to have a "problem" to explore what's inside.
+            </h2>
+            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>
+              This is for anyone who's ever felt something they couldn't quite name.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Card 1 — accent border */}
+            <Card className="border-primary/30 bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-4">
+                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  "I'm fine, I think. But lately something feels… off. I just can't put my finger on it."
+                </p>
+                <Badge variant="secondary" className="text-xs">Feeling off without knowing why</Badge>
+              </CardContent>
+            </Card>
+
+            {/* Card 2 */}
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-4">
+                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  "A lot is changing in my life right now. I'm not sure how I actually feel about all of it."
+                </p>
+                <Badge variant="secondary" className="text-xs">Going through a transition</Badge>
+              </CardContent>
+            </Card>
+
+            {/* Card 3 */}
+            <Card className="bg-card/60 backdrop-blur-sm shadow-none">
+              <CardContent className="p-6 space-y-4">
+                <p className="text-base italic text-foreground leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                  "I'm curious about myself. I want to understand my patterns and what drives me."
+                </p>
+                <Badge variant="secondary" className="text-xs">Self-discovery & curiosity</Badge>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Bridge block */}
+          <div className="text-center space-y-4 max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'var(--font-body)' }}>
+              Whatever brought you here — you don't need the right words.
+            </p>
+            <p className="text-xl font-semibold text-primary" style={{ fontFamily: 'var(--font-display)' }}>
+              The sandbox will find them for you.
+            </p>
+            <Button onClick={() => navigate("/login")} className="mt-2 gap-2">
+              Try it now <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* ===== CONTENT SECTION ===== */}
       {/* ===== CONTENT SECTION ===== */}
       <section ref={contentRef} className="relative z-10 h-[100dvh] flex flex-col overflow-hidden">
