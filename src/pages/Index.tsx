@@ -173,13 +173,14 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="animate-fade-in-up animation-delay-400 w-full min-h-[400px] md:min-h-[500px] rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm flex items-center justify-center">
-              <div className="text-center space-y-2 text-muted-foreground">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                  <svg className="w-7 h-7 text-primary ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-                </div>
-                <p className="text-base font-medium">Demo Video</p>
-              </div>
+            <div className="animate-fade-in-up animation-delay-400 w-full rounded-2xl border border-border/50 bg-card/40 backdrop-blur-sm overflow-hidden">
+              <video
+                className="w-full h-auto rounded-2xl"
+                src="/videos/SandBoxDemo.mp4"
+                controls
+                playsInline
+                preload="metadata"
+              />
             </div>
           </ScrollSection>
         </div>
