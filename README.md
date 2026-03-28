@@ -19,11 +19,7 @@ Sandbox AI is an emotional exploration platform that lets users express how they
 
 ### Sandbox Demo
 
-https://github.com/user-attachments/assets/SandBoxDemo.mp4
-
-<video src="public/videos/SandBoxDemo.mp4" width="100%" controls></video>
-
-> *Place objects freely in a 3D sandbox and receive AI-powered emotional reflections.*
+https://codeweaver-calm.lovable.app/videos/SandBoxDemo.mp4
 
 ---
 
